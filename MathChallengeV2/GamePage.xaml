@@ -23,7 +23,8 @@
             HorizontalOptions="Center"
             BackgroundColor="DarkOliveGreen"
             FontSize="50"
-            TextColor="White">
+            TextColor="White"
+            Completed="OnAnswerSubmitted">
             </Entry>
 
             <Button

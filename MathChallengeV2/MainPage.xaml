@@ -19,48 +19,55 @@
                 FontSize="50"
                 HorizontalOptions="Center"/>
 
-            <Grid RowDefinitions="*, 150"
+            <Grid RowDefinitions="*"
                   ColumnDefinitions="*, *, *, *">
 
                 <Button Grid.Column="0"
                         Text="+"
+                        TextColor="DarkGreen"
+                        BorderWidth="5"
+                        BorderColor="DarkOrange"
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
                         FontSize="60"/>
                 <Button Grid.Column="1"
                         Text="-" 
+                        TextColor="DarkGreen"
+                        BorderWidth="5"
+                        BorderColor="DarkOrchid"
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
                         FontSize="60"/>
                 <Button Grid.Column="2"
                         Text="×"
+                        TextColor="DarkGreen"
+                        BorderWidth="5"
+                        BorderColor="DarkTurquoise"
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
                         FontSize="60"/>
                 <Button Grid.Column="3"
-                        Text="÷" 
+                        Text="÷"
+                        TextColor="DarkGreen"
+                        BorderWidth="5"
+                        BorderColor="DarkMagenta"
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
                         FontSize="60"/>
-                <Button Grid.Row="1"
-                        Grid.Column = "1"
-                        BackgroundColor="ForestGreen"
-                        x:Name="Difficulty"
-                        Text="Difficulty:"
-                        Clicked="ToggleDifficulty"
-                        FontSize="28"
-                        MaximumWidthRequest="320"
-                        MaximumHeightRequest="70"/>
-                <Button Grid.Row="1"
-                        Grid.Column = "2"
-                        BackgroundColor="ForestGreen"
-                        Text="View Previous Games" 
-                        Clicked="OnViewPreviousGamesChosen"
-                        FontSize="28"
-                        MaximumWidthRequest="320"
-                        MaximumHeightRequest="70"/>
-                
             </Grid>
+            <Button BackgroundColor="ForestGreen"
+                    x:Name="Difficulty"
+                    Text="Difficulty:"
+                    Clicked="ToggleDifficulty"
+                    FontSize="28"
+                    MaximumWidthRequest="320"
+                    MaximumHeightRequest="70"/>
+            <Button BackgroundColor="ForestGreen"
+                    Text="View Previous Games" 
+                    Clicked="OnViewPreviousGamesChosen"
+                    FontSize="28"
+                    MaximumWidthRequest="320"
+                    MaximumHeightRequest="70"/>
         </VerticalStackLayout>
     </ContentView>
 </ContentPage>

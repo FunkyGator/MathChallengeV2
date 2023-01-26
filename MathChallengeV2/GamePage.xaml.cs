@@ -5,6 +5,7 @@ namespace MathChallengeV2;
 public partial class GamePage : ContentPage
 {
 	public string GameType { get; set; }
+	public GameDifficulty Difficulty { get; set; }
 	int firstNumber = 0;
 	int secondNumber = 0;
 	int score = 0;
@@ -15,12 +16,13 @@ public partial class GamePage : ContentPage
 	{
 		InitializeComponent();
 		GameType = gameType;
+		Difficulty = difficulty;
 		BindingContext = this;
 
-		CreateNewQuestion(difficulty);
+		CreateNewQuestion();
 	}
 
-	private void CreateNewQuestion(GameDifficulty difficulty)
+	private void CreateNewQuestion()
 	{
 		var random = new Random();
 		int lowNum;
@@ -28,12 +30,12 @@ public partial class GamePage : ContentPage
 
 		if (GameType == "÷")
 		{
-			if (difficulty == GameDifficulty.Easy)
+			if (Difficulty == GameDifficulty.Easy)
 			{
 				lowNum = 1;
 				highNum = 99;
 			}
-			else if (difficulty == GameDifficulty.Challenging)
+			else if (Difficulty == GameDifficulty.Challenging)
 			{
 				lowNum = 100;
 				highNum = 999;
@@ -52,12 +54,12 @@ public partial class GamePage : ContentPage
 		}
 		else
 		{
-			if (difficulty == GameDifficulty.Easy)
+			if (Difficulty == GameDifficulty.Easy)
 			{
 				lowNum = 1;
 				highNum = 9;
 			}
-			else if (difficulty == GameDifficulty.Challenging)
+			else if (Difficulty == GameDifficulty.Challenging)
 			{
 				lowNum = 10;
 				highNum = 99;
@@ -101,7 +103,7 @@ public partial class GamePage : ContentPage
 		AnswerEntry.Text = "";
 
 		if (gamesLeft > 0)
-			CreateNewQuestion(GameDifficulty difficulty);
+			CreateNewQuestion();
 		else
 			GameOver();
     }
@@ -125,7 +127,8 @@ public partial class GamePage : ContentPage
 			DatePlayed = DateTime.Now,
 			Type = gameOperation,
 			Score = score,
-		});
+			Difficulty = this.Difficulty,
+		}) ;
 	}
 
 	private void ProcessAnswer(bool isCorrect) 

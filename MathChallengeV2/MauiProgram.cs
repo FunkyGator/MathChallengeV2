@@ -14,7 +14,8 @@ public static class MauiProgram
 				fonts.AddFont("CaveatBrush-Regular.ttf", "CaveatBrushRegular");
 			});
 
-		string dbPath = Path.Combine(FileSystem.AppDataDirectory, "game.db");
+		string dbPath = Path.Combine("D:\\Visual Studio Projects\\MathChallengeV2\\MathChallengeV2\\Data\\", "game.db");
+
 
 		builder.Services.AddSingleton<GameRepository>(s => ActivatorUtilities.CreateInstance<GameRepository>(s, dbPath));
 
