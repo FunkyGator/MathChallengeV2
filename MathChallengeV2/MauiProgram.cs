@@ -12,6 +12,8 @@ public static class MauiProgram
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("CaveatBrush-Regular.ttf", "CaveatBrushRegular");
+				fonts.AddFont("EraserDust-p70d.ttf", "EraserDust");
+				fonts.AddFont("KGChasingPavements.ttf", "ChasingPavements");
 			});
 
 		string dbPath = Path.Combine("D:\\Visual Studio Projects\\MathChallengeV2\\MathChallengeV2\\Data\\", "game.db");

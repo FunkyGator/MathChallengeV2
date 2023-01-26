@@ -6,18 +6,26 @@
              >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ScrollView>
+        <Label Grid.Row="0" Text="Games History"
+                   FontSize="50"
+                   HorizontalOptions="Center"
+                   />
+
+        <Grid Grid.Row="1" ColumnDefinitions="*, *, *, 70"
+                  RowDefinitions="50">
+            <Label Grid.Column="0" Text="Date" FontSize="32" FontAttributes="Bold"/>
+            <Label Grid.Column="1" Text="Type" FontSize="32" FontAttributes="Bold"/>
+            <Label Grid.Column="2" Text="Score" FontSize="32" FontAttributes="Bold"/>
+        </Grid>
+        <ScrollView Grid.Row="2">
             <VerticalStackLayout
                 Padding="50, 100, 50, 50">
-                <Grid ColumnDefinitions="*, *, *, 70"
-                           RowDefinitions="50">
-                    <Label Grid.Column="0" Text="Date" FontSize="32" FontAttributes="Bold"/>
-                    <Label Grid.Column="1" Text="Type" FontSize="32" FontAttributes="Bold"/>
-                    <Label Grid.Column="2" Text="Score" FontSize="32" FontAttributes="Bold"/>
-                </Grid>
+                
                 <CollectionView x:Name="gamesList">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
@@ -51,7 +59,7 @@
             </VerticalStackLayout>
         </ScrollView>
         <Button
-        Grid.Row="1"
+        Grid.Row="3"
         BackgroundColor="Transparent"
         BorderWidth="5"
         BorderColor="White"

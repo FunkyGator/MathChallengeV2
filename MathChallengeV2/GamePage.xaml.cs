@@ -18,6 +18,8 @@ public partial class GamePage : ContentPage
 	{
 		InitializeComponent();
 
+		Loaded += GamePage_Loaded;
+
 		GameType = gameType;
 		Difficulty = difficulty;
 		NumberOfQuestions = numberOfQuestions;
@@ -29,16 +31,22 @@ public partial class GamePage : ContentPage
 		CreateNewQuestion();
 	}
 
+	private void GamePage_Loaded(object sender, EventArgs e)
+	{
+		AnswerEntry.Focus();
+	}
+
 	private void CreateNewQuestion()
 	{
 		var random = new Random();
-		var randomGameType = 0;
+		int randomGameType;
 		int lowNum;
 		int highNum;
 
 		if (OriginalGameType == "?")
 		{
 			randomGameType = random.Next(1, 4);
+
 			switch (randomGameType) 
 			{
 				case 1:
@@ -74,7 +82,10 @@ public partial class GamePage : ContentPage
 				highNum = 9999;
 			}
 
-			while (firstNumber < secondNumber || firstNumber % secondNumber != 0)
+            firstNumber = random.Next(lowNum, highNum);
+            secondNumber = random.Next(lowNum, highNum);
+
+            while (firstNumber < secondNumber || firstNumber % secondNumber != 0)
 			{
 				firstNumber = random.Next(lowNum, highNum);
 				secondNumber = random.Next(lowNum, highNum);
@@ -111,11 +122,9 @@ public partial class GamePage : ContentPage
 			}
 		}
 
-		
-
 		NumberOfQuestionsLabel.Text = $"Question Number {currentQuestion} of {NumberOfQuestions}";
 
-        QuestionLabel.Text = $"{firstNumber} {GameType} {secondNumber}";
+        QuestionLabel.Text = $"{firstNumber} {GameType} {secondNumber} = ";
 	}
 
 	private void OnAnswerSubmitted(object sender, EventArgs e)

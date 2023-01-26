@@ -18,21 +18,35 @@
             HorizontalOptions="Center"
             FontSize="80"/>
 
-            <Label
-            x:Name="QuestionLabel"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            FontSize="80"/>
-
-            <Entry
-                x:Name="AnswerEntry"
+            <HorizontalStackLayout
                 HorizontalOptions="Center"
-                BackgroundColor="Transparent"
-                FontSize="50"
-                TextColor="White"
-                Completed="OnAnswerSubmitted">
-            </Entry>
+                Spacing="15">
+                <Label
+                x:Name="QuestionLabel"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="80"/>
 
+                <Border Stroke="White"
+                        StrokeThickness="5"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        MinimumWidthRequest="120"
+                        MaximumHeightRequest="100">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10,10,10,10" />
+                    </Border.StrokeShape>
+
+                    <Entry
+                        x:Name="AnswerEntry"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Transparent"
+                        FontSize="80"
+                        TextColor="White"
+                        Completed="OnAnswerSubmitted" />
+                </Border>
+            </HorizontalStackLayout>
 
             <Button
             x:Name="SubmitAnswer"

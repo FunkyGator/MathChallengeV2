@@ -11,8 +11,9 @@
             Padding="50"
             >
             <Label
-                Text="This is your maths game!"
-                FontSize="50"
+                Text="Math Challenge"
+                FontSize="80"
+                FontAttributes="Bold"
                 HorizontalOptions="Center"/>
             <Label
                 Text="What game would you like to play?"
@@ -76,7 +77,7 @@
                     Text="Number Of Questions:"
                     Clicked="ToggleNumberOfQuestions"
                     FontSize="28"
-                    MaximumWidthRequest="320"
+                    MaximumWidthRequest="400"
                     MaximumHeightRequest="70"
                     />
             <Button BackgroundColor="Transparent"
@@ -87,7 +88,7 @@
                     Text="Difficulty:"
                     Clicked="ToggleDifficulty"
                     FontSize="28"
-                    MaximumWidthRequest="320"
+                    MaximumWidthRequest="400"
                     MaximumHeightRequest="70"/>
             <Button BackgroundColor="Transparent"
                     TextColor="White"
@@ -96,7 +97,7 @@
                     Text="View Previous Games" 
                     Clicked="OnViewPreviousGamesChosen"
                     FontSize="28"
-                    MaximumWidthRequest="320"
+                    MaximumWidthRequest="400"
                     MaximumHeightRequest="70"/>
         </VerticalStackLayout>
     </ContentView>
