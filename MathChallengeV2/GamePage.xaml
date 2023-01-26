@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MathChallengeV2.GamePage"
-             BackgroundImageSource="bg.jpg"
-             >
+             BackgroundImageSource="bg.jpg">
+    
     <VerticalStackLayout
         Padding="100"
         Spacing="25">
@@ -11,21 +11,29 @@
         <VerticalStackLayout
             x:Name="QuestionArea"
             Spacing="25">
-
+            
             <Label 
-            x:Name="NumberOfQuestionsLabel"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            FontSize="80"/>
+                x:Name="QuestionType"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="80"
+                FontAttributes="Bold"/>
+            
+            <Label 
+                x:Name="NumberOfQuestionsLabel"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="80"/>
 
             <HorizontalStackLayout
                 HorizontalOptions="Center"
                 Spacing="15">
+                
                 <Label
-                x:Name="QuestionLabel"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                FontSize="80"/>
+                    x:Name="QuestionLabel"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    FontSize="80"/>
 
                 <Border Stroke="White"
                         StrokeThickness="5"
@@ -33,9 +41,13 @@
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
                         MinimumWidthRequest="120"
-                        MaximumHeightRequest="100">
+                        MaximumHeightRequest="110"
+                        Margin="0,0,0,20">
+                    
                     <Border.StrokeShape>
+                        
                         <RoundRectangle CornerRadius="10,10,10,10" />
+                        
                     </Border.StrokeShape>
 
                     <Entry
@@ -44,26 +56,28 @@
                         BackgroundColor="Transparent"
                         FontSize="80"
                         TextColor="White"
-                        Completed="OnAnswerSubmitted" />
+                        Completed="OnAnswerSubmitted"/>
+                    
                 </Border>
+                
             </HorizontalStackLayout>
 
-            <Button
-            x:Name="SubmitAnswer"
-            BackgroundColor="Transparent"
-            BorderWidth="5"
-            BorderColor="White"
-            TextColor="White"
-            Text="Answer"
-            Clicked="OnAnswerSubmitted"
-            HorizontalOptions="Center"
-            FontSize="32"/>
-
             <Label 
-            x:Name="AnswerLabel"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            FontSize="32" />
+                x:Name="AnswerLabel"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="50" />
+
+            <Button
+                x:Name="SubmitAnswer"
+                BackgroundColor="Transparent"
+                BorderWidth="5"
+                BorderColor="White"
+                TextColor="White"
+                Text="Answer"
+                Clicked="OnAnswerSubmitted"
+                HorizontalOptions="Center"
+                FontSize="32"/>
 
         </VerticalStackLayout>
 
@@ -85,6 +99,6 @@
             HorizontalOptions="Center"
             FontSize="32"/>
         
-        
     </VerticalStackLayout>
+    
 </ContentPage>

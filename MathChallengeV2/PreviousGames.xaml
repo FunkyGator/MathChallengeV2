@@ -2,63 +2,130 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MathChallengeV2.PreviousGames"
-             BackgroundImageSource="bg.jpg"
-             >
+             BackgroundImageSource="bg.jpg">
+    
     <Grid>
+        
         <Grid.RowDefinitions>
+            
             <RowDefinition Height="Auto" />
+            
             <RowDefinition Height="Auto"/>
+            
             <RowDefinition Height="*"/>
+            
             <RowDefinition Height="Auto" />
+            
         </Grid.RowDefinitions>
+        
         <Label Grid.Row="0" Text="Games History"
-                   FontSize="50"
-                   HorizontalOptions="Center"
-                   />
+               FontSize="50"
+               HorizontalOptions="Center"/>
 
-        <Grid Grid.Row="1" ColumnDefinitions="*, *, *, 70"
+        <Grid Grid.Row="1" ColumnDefinitions="*, *, *, *, *"
                   RowDefinitions="50">
-            <Label Grid.Column="0" Text="Date" FontSize="32" FontAttributes="Bold"/>
-            <Label Grid.Column="1" Text="Type" FontSize="32" FontAttributes="Bold"/>
-            <Label Grid.Column="2" Text="Score" FontSize="32" FontAttributes="Bold"/>
+            
+            <Label Grid.Column="0" 
+                   Text="Date" FontSize="32" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"/>
+            
+            <Label Grid.Column="1"
+                   Text="Type" 
+                   FontSize="32" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"/>
+            
+            <Label Grid.Column="2"
+                   Text="Difficulty" 
+                   FontSize="32" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"/>
+            
+            <Label Grid.Column="3" 
+                   Text="Score" 
+                   FontSize="32" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"/>
+            
+            <Label Grid.Column="4" 
+                   Text="Delete" 
+                   FontSize="32" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"/>
+            
         </Grid>
+        
         <ScrollView Grid.Row="2">
+            
             <VerticalStackLayout
                 Padding="50, 100, 50, 50">
                 
                 <CollectionView x:Name="gamesList">
+                    
                     <CollectionView.ItemTemplate>
+                        
                         <DataTemplate>
-                            <Grid ColumnDefinitions="*, *, *, 70"
+                            
+                            <Grid ColumnDefinitions="*, *, *, *, *"
                                   RowDefinitions="50">
 
-                                <Label Grid.Column="0" Text="{Binding DatePlayed, StringFormat='{0:d}'}"
-                                       FontSize="32" />
-                                <Label Grid.Column="1" Text="{Binding Type}"
-                                       FontSize="32" />
-                                <StackLayout Grid.Column="2" Orientation="Horizontal" Spacing="5">
+                                <Label Grid.Column="0" 
+                                       Text="{Binding DatePlayed, StringFormat='{0:d}'}"
+                                       FontSize="32"
+                                       HorizontalOptions="Center"/>
+                                
+                                <Label Grid.Column="1" 
+                                       Text="{Binding Type}"
+                                       FontSize="32"
+                                       HorizontalOptions="Center"/>
+                                
+                                <Label Grid.Column="2" 
+                                       Text="{Binding Difficulty}"
+                                       FontSize="32"
+                                       HorizontalOptions="Center"/>
+                                
+                                <StackLayout Grid.Column="3" 
+                                             Orientation="Horizontal" 
+                                             Spacing="5" 
+                                             HorizontalOptions="Center">
+                                    
                                     <Label Text="{Binding Score}"
-                                       FontSize="32" />
+                                           FontSize="32" />
+                                    
                                     <Label Text="out of"
-                                       FontSize="32"/>
+                                           FontSize="32"/>
+                                    
                                     <Label Text="{Binding NumberOfQuestions}"
-                                       FontSize="32" />
+                                           FontSize="32" />
+                                    
                                 </StackLayout>
+                                
                                 <ImageButton
                                     Source="trash.png"
-                                    BackgroundColor="Blue"
-                                    Grid.Column="3"
+                                    BackgroundColor="Transparent"
+                                    Grid.Column="4"
                                     Clicked="OnDelete"
                                     BindingContext="{Binding Id}"
-                                    MinimumHeightRequest="40"
-                                    MinimumWidthRequest="70" />
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    MinimumHeightRequest="70"
+                                    MaximumWidthRequest="70" />
+                                
                             </Grid>
+                            
                         </DataTemplate>
+                        
                     </CollectionView.ItemTemplate>
+                    
                 </CollectionView>
+                
             </VerticalStackLayout>
+            
         </ScrollView>
+        
         <Button
+        Margin="0, 15, 0, 10"
         Grid.Row="3"
         BackgroundColor="Transparent"
         BorderWidth="5"
@@ -69,5 +136,7 @@
         HorizontalOptions="Center"
         MaximumHeightRequest="55"
         FontSize="32"/>
+        
     </Grid>
+    
 </ContentPage>

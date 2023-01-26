@@ -5,10 +5,15 @@ namespace MathChallengeV2;
 public partial class GamePage : ContentPage
 {
 	public string GameType { get; set; }
+
 	public GameDifficulty Difficulty { get; set; }
+
 	public int NumberOfQuestions { get; set; }
+
 	public string OriginalGameType { get; set; }
+
 	public int GamesLeft { get; set; }
+
 	int currentQuestion = 1;
 	int firstNumber = 0;
 	int secondNumber = 0;
@@ -121,6 +126,28 @@ public partial class GamePage : ContentPage
 				}
 			}
 		}
+		string questionType = "";
+
+		switch (GameType)
+		{
+			case "+":
+				questionType = "Addition";
+				break;
+			case "-":
+				questionType = "Subtraction";
+				break;
+			case "×":
+				questionType = "Multiplication";
+                break;
+			case "÷":
+				questionType = "Division";
+				break;
+        }
+
+		if (OriginalGameType == "?") questionType = "Random";
+
+
+		QuestionType.Text = $"{questionType} Challenge";
 
 		NumberOfQuestionsLabel.Text = $"Question Number {currentQuestion} of {NumberOfQuestions}";
 
@@ -129,7 +156,9 @@ public partial class GamePage : ContentPage
 
 	private void OnAnswerSubmitted(object sender, EventArgs e)
 	{
-		var answer = Int32.Parse(AnswerEntry.Text);
+		// If the answer is not an integer then the answer will be incorrect but the game will not hang.
+		_ = Int32.TryParse(AnswerEntry.Text, out int answer);
+
 		var isCorrect = false;
 
 
@@ -192,6 +221,7 @@ public partial class GamePage : ContentPage
 	{
 		score = isCorrect ? score += 1 : score;
 		AnswerLabel.Text = isCorrect ? "Correct!" : "Incorrect!";
+		
 	}
 
 	private void OnBackToMenu(object sender, EventArgs e)
