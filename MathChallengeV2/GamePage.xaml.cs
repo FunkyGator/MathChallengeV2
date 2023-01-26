@@ -6,17 +6,20 @@ public partial class GamePage : ContentPage
 {
 	public string GameType { get; set; }
 	public GameDifficulty Difficulty { get; set; }
+	public int NumberOfQuestions { get; set; }
+	public int GamesLeft { get; set; }
+	int currentQuestion = 1;
 	int firstNumber = 0;
 	int secondNumber = 0;
 	int score = 0;
-	const int totalQuestions = 2;
-	int gamesLeft = totalQuestions;
 
-	public GamePage(string gameType, GameDifficulty difficulty)
+	public GamePage(string gameType, GameDifficulty difficulty, int numberOfQuestions)
 	{
 		InitializeComponent();
 		GameType = gameType;
 		Difficulty = difficulty;
+		NumberOfQuestions = numberOfQuestions;
+		GamesLeft = numberOfQuestions;
 		BindingContext = this;
 
 		CreateNewQuestion();
@@ -73,13 +76,16 @@ public partial class GamePage : ContentPage
 		firstNumber = random.Next(lowNum, highNum);
 		secondNumber = random.Next(lowNum, highNum);
 
-		QuestionLabel.Text = $"{firstNumber} {GameType} {secondNumber}";
+		NumberOfQuestionsLabel.Text = $"Question Number {currentQuestion} of {NumberOfQuestions}";
+
+        QuestionLabel.Text = $"{firstNumber} {GameType} {secondNumber}";
 	}
 
 	private void OnAnswerSubmitted(object sender, EventArgs e)
 	{
 		var answer = Int32.Parse(AnswerEntry.Text);
 		var isCorrect = false;
+
 
 		switch (GameType)
 		{
@@ -99,10 +105,11 @@ public partial class GamePage : ContentPage
 
         ProcessAnswer(isCorrect);
 
-		gamesLeft--;
+		GamesLeft--;
+		currentQuestion++;
 		AnswerEntry.Text = "";
 
-		if (gamesLeft > 0)
+		if (GamesLeft > 0)
 			CreateNewQuestion();
 		else
 			GameOver();
@@ -120,7 +127,7 @@ public partial class GamePage : ContentPage
 
 		QuestionArea.IsVisible = false;
 		BackTOMenuBtn.IsVisible = true;
-		GameOverLabel.Text = $"Game over! You got {score} out of {totalQuestions} right";
+		GameOverLabel.Text = $"Game over! You got {score} out of {NumberOfQuestions} right";
 
 		App.GameRepository.Add(new Game
 		{
@@ -128,6 +135,7 @@ public partial class GamePage : ContentPage
 			Type = gameOperation,
 			Score = score,
 			Difficulty = this.Difficulty,
+			NumberOfQuestions = this.NumberOfQuestions,
 		}) ;
 	}
 
@@ -140,7 +148,7 @@ public partial class GamePage : ContentPage
 	private void OnBackToMenu(object sender, EventArgs e)
 	{
 		score = 0;
-		gamesLeft = totalQuestions;
+		GamesLeft = NumberOfQuestions;
 
 		Navigation.PushAsync(new MainPage());
 	}

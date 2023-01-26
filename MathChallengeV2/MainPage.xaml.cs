@@ -6,11 +6,14 @@ namespace MathChallengeV2;
 public partial class MainPage : ContentPage
 {
 	public GameDifficulty difficulty = GameDifficulty.Easy;
+	public int numberOfQuestions = 5;
 
 	public MainPage()
 	{
 		InitializeComponent();
 		Difficulty.Text = $"Difficulty : {Convert.ToString(difficulty)}";
+		NumberOfQuestions.Text = $"Number Of Questions : {numberOfQuestions}";
+
 		BindingContext = this;
 	}
 
@@ -18,7 +21,7 @@ public partial class MainPage : ContentPage
 	{
 		Button button = (Button)sender;
 
-		Navigation.PushAsync(new GamePage(button.Text,difficulty));
+		Navigation.PushAsync(new GamePage(button.Text, difficulty, numberOfQuestions));
 	}
 
 	private void OnViewPreviousGamesChosen(object sender, EventArgs e)
@@ -33,6 +36,16 @@ public partial class MainPage : ContentPage
         else difficulty = GameDifficulty.Easy;
 
         Difficulty.Text = $"Difficulty : {Convert.ToString(difficulty)}";
+    }
+
+    private void ToggleNumberOfQuestions(object sender, EventArgs e)
+    {
+		if (numberOfQuestions == 5) numberOfQuestions = 10;
+		else if (numberOfQuestions == 10) numberOfQuestions = 15;
+		else if (numberOfQuestions == 15) numberOfQuestions = 20;
+		else numberOfQuestions= 5;
+
+		NumberOfQuestions.Text = $"Number Of Questions : {numberOfQuestions}";
     }
 }
 

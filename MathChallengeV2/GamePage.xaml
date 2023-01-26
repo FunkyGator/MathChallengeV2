@@ -11,7 +11,13 @@
         <VerticalStackLayout
             x:Name="QuestionArea"
             Spacing="25">
-            
+
+            <Label 
+            x:Name="NumberOfQuestionsLabel"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="80"/>
+
             <Label
             x:Name="QuestionLabel"
             VerticalOptions="Center"

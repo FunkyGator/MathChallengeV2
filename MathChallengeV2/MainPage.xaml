@@ -20,7 +20,7 @@
                 HorizontalOptions="Center"/>
 
             <Grid RowDefinitions="*"
-                  ColumnDefinitions="*, *, *, *">
+                  ColumnDefinitions="*, *, *, *, *">
 
                 <Button Grid.Column="0"
                         Text="+"
@@ -54,7 +54,23 @@
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
                         FontSize="60"/>
+                <Button Grid.Column="4"
+                        Text="?"
+                        TextColor="DarkGreen"
+                        BorderWidth="5"
+                        BorderColor="DarkSlateBlue"
+                        Clicked="OnGameChosen"
+                        MaximumWidthRequest="100"
+                        FontSize="60"/>
             </Grid>
+            <Button BackgroundColor="ForestGreen"
+                    x:Name="NumberOfQuestions"
+                    Text="Number Of Questions:"
+                    Clicked="ToggleNumberOfQuestions"
+                    FontSize="28"
+                    MaximumWidthRequest="320"
+                    MaximumHeightRequest="70"
+                    />
             <Button BackgroundColor="ForestGreen"
                     x:Name="Difficulty"
                     Text="Difficulty:"

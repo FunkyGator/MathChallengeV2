@@ -11,6 +11,7 @@ namespace MathChallengeV2.Models
         public int Score { get; set; }
         public DateTime DatePlayed { get; set; }
         public GameDifficulty Difficulty { get; set; }
+        public int NumberOfQuestions { get; set; }    
     }
 
     public enum GameOperation
@@ -19,6 +20,7 @@ namespace MathChallengeV2.Models
         Subtraction,
         Multiplication,
         Division,
+        Random
     }
 
     public enum GameDifficulty
