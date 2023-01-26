@@ -64,6 +64,8 @@
                         FontSize="60"/>
             </Grid>
             <Button BackgroundColor="ForestGreen"
+                    BorderWidth="5"
+                    BorderColor="DarkBlue"
                     x:Name="NumberOfQuestions"
                     Text="Number Of Questions:"
                     Clicked="ToggleNumberOfQuestions"
@@ -72,6 +74,8 @@
                     MaximumHeightRequest="70"
                     />
             <Button BackgroundColor="ForestGreen"
+                    BorderWidth="5"
+                    BorderColor="DarkBlue"
                     x:Name="Difficulty"
                     Text="Difficulty:"
                     Clicked="ToggleDifficulty"
@@ -79,6 +83,8 @@
                     MaximumWidthRequest="320"
                     MaximumHeightRequest="70"/>
             <Button BackgroundColor="ForestGreen"
+                    BorderWidth="5"
+                    BorderColor="DarkBlue"
                     Text="View Previous Games" 
                     Clicked="OnViewPreviousGamesChosen"
                     FontSize="28"

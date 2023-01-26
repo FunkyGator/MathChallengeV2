@@ -35,6 +35,9 @@
 
             <Button
             x:Name="SubmitAnswer"
+            BackgroundColor="DarkGreen"
+            BorderWidth="5"
+            BorderColor="DarkBlue"
             Text="Answer"
             Clicked="OnAnswerSubmitted"
             HorizontalOptions="Center"
@@ -57,6 +60,9 @@
         <Button
             IsVisible="false"
             x:Name="BackTOMenuBtn"
+            BackgroundColor="ForestGreen"
+            BorderWidth="5"
+            BorderColor="DarkBlue"
             Text="Back To Menu"
             Clicked="OnBackToMenu"
             HorizontalOptions="Center"

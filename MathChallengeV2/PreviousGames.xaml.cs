@@ -21,4 +21,9 @@ public partial class PreviousGames : ContentPage
 
 		gamesList.ItemsSource = App.GameRepository.GetAllGames();
 	}
+
+    private void OnBackToMenu(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new MainPage());
+    }
 }
