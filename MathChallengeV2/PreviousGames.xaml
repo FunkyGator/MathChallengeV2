@@ -52,9 +52,10 @@
         </ScrollView>
         <Button
         Grid.Row="1"
-        BackgroundColor="ForestGreen"
+        BackgroundColor="Transparent"
         BorderWidth="5"
-        BorderColor="DarkBlue"
+        BorderColor="White"
+        TextColor="White"
         Text="Back To Menu"
         Clicked="OnBackToMenu"
         HorizontalOptions="Center"

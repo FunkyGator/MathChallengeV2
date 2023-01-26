@@ -25,19 +25,21 @@
             FontSize="80"/>
 
             <Entry
-            x:Name="AnswerEntry"
-            HorizontalOptions="Center"
-            BackgroundColor="DarkOliveGreen"
-            FontSize="50"
-            TextColor="White"
-            Completed="OnAnswerSubmitted">
+                x:Name="AnswerEntry"
+                HorizontalOptions="Center"
+                BackgroundColor="Transparent"
+                FontSize="50"
+                TextColor="White"
+                Completed="OnAnswerSubmitted">
             </Entry>
+
 
             <Button
             x:Name="SubmitAnswer"
-            BackgroundColor="DarkGreen"
+            BackgroundColor="Transparent"
             BorderWidth="5"
-            BorderColor="DarkBlue"
+            BorderColor="White"
+            TextColor="White"
             Text="Answer"
             Clicked="OnAnswerSubmitted"
             HorizontalOptions="Center"
@@ -60,9 +62,10 @@
         <Button
             IsVisible="false"
             x:Name="BackTOMenuBtn"
-            BackgroundColor="ForestGreen"
+            BackgroundColor="Transparent"
             BorderWidth="5"
-            BorderColor="DarkBlue"
+            BorderColor="White"
+            TextColor="White"
             Text="Back To Menu"
             Clicked="OnBackToMenu"
             HorizontalOptions="Center"
