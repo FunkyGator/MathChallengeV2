@@ -70,14 +70,49 @@
 
             <Button
                 x:Name="SubmitAnswer"
+                IsVisible="True"
                 BackgroundColor="Transparent"
                 BorderWidth="5"
                 BorderColor="White"
                 TextColor="White"
-                Text="Answer"
+                Text="Check Answer"
                 Clicked="OnAnswerSubmitted"
                 HorizontalOptions="Center"
                 FontSize="32"/>
+
+            <VerticalStackLayout x:Name="IncorrectAnswer"
+                                 IsVisible="False"
+                                 Spacing="25">
+                <Button Text="Show Answer"
+                        x:Name="IncorrectBtn"
+                        Clicked="IncorrectBtnClicked"
+                        BackgroundColor="Transparent"
+                        BorderWidth="5"
+                        BorderColor="White"
+                        TextColor="White"
+                        HorizontalOptions="Center"
+                        FontSize="32"/>
+                <Button x:Name="IncorrectContinue"
+                        Clicked="IncorrectContinueBtn"
+                        Text="Continue"
+                        BackgroundColor="Transparent"
+                        BorderWidth="5"
+                        BorderColor="White"
+                        TextColor="White"
+                        HorizontalOptions="Center"
+                        FontSize="32"/>
+            </VerticalStackLayout>
+
+            <Button x:Name="Continue"
+                    Clicked="ContinueBtn"
+                    IsVisible="False"
+                    Text="Continue"
+                    BackgroundColor="Transparent"
+                    BorderWidth="5"
+                    BorderColor="White"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    FontSize="32"/>
 
         </VerticalStackLayout>
 

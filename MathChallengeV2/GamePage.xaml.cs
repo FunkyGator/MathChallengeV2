@@ -1,4 +1,6 @@
 using MathChallengeV2.Models;
+using Microsoft.Maui.Graphics.Text;
+using System.Runtime.CompilerServices;
 
 namespace MathChallengeV2;
 
@@ -18,6 +20,7 @@ public partial class GamePage : ContentPage
 	int firstNumber = 0;
 	int secondNumber = 0;
 	int score = 0;
+	int correctAnswer;
 
 	public GamePage(string gameType, GameDifficulty difficulty, int numberOfQuestions)
 	{
@@ -165,29 +168,55 @@ public partial class GamePage : ContentPage
 		switch (GameType)
 		{
 			case "+":
-				isCorrect = answer == firstNumber + secondNumber;
+				if (answer == firstNumber + secondNumber)
+				{
+					isCorrect = true;
+				}
+				else
+				{
+					correctAnswer = firstNumber + secondNumber;
+				}
 				break;
 			case "-":
-				isCorrect= answer == firstNumber - secondNumber;
+				//isCorrect= answer == firstNumber - secondNumber;
+				if (answer == firstNumber - secondNumber)
+				{
+					isCorrect = true;
+				}
+				else
+				{
+					correctAnswer = firstNumber - secondNumber;
+				}
 				break;
 			case "×":
-				isCorrect= answer == firstNumber * secondNumber;
+				//isCorrect= answer == firstNumber * secondNumber;
+				if (answer == firstNumber * secondNumber)
+				{
+					isCorrect = true;
+				}
+				else
+				{
+					correctAnswer = firstNumber * secondNumber;
+				}
 				break;
 			case "÷":
-				isCorrect= answer == firstNumber / secondNumber;
+				//isCorrect= answer == firstNumber / secondNumber;
+				if (answer == secondNumber / secondNumber)
+				{
+					isCorrect = true;
+				}
+				else
+				{
+					correctAnswer = secondNumber / secondNumber;
+				}
                 break;
 		}
 
-        ProcessAnswer(isCorrect);
+		ProcessAnswer(isCorrect);
 
 		GamesLeft--;
 		currentQuestion++;
-		AnswerEntry.Text = "";
 
-		if (GamesLeft > 0)
-			CreateNewQuestion();
-		else
-			GameOver();
     }
 
 	private void GameOver()
@@ -220,8 +249,21 @@ public partial class GamePage : ContentPage
 	private void ProcessAnswer(bool isCorrect) 
 	{
 		score = isCorrect ? score += 1 : score;
-		AnswerLabel.Text = isCorrect ? "Correct!" : "Incorrect!";
-		
+
+		if (isCorrect)
+		{
+			AnswerLabel.Text = "Correct!";
+			SubmitAnswer.IsVisible= false;
+			Continue.IsVisible = true;
+		}
+
+		else
+		{
+			AnswerLabel.Text = "Incorrect!";
+			AnswerEntry.TextColor = Colors.Red;
+			SubmitAnswer.IsVisible = false;
+			IncorrectAnswer.IsVisible = true;
+		}
 	}
 
 	private void OnBackToMenu(object sender, EventArgs e)
@@ -231,4 +273,39 @@ public partial class GamePage : ContentPage
 
 		Navigation.PushAsync(new MainPage());
 	}
+
+    private void ContinueBtn(object sender, EventArgs e)
+    {
+		AnswerLabel.Text = "";
+		SubmitAnswer.IsVisible = true;
+		Continue.IsVisible = false;
+
+        AnswerEntry.Text = "";
+		AnswerEntry.TextColor = Colors.White;
+        if (GamesLeft > 0)
+            CreateNewQuestion();
+        else
+            GameOver();
+    }
+
+    private void IncorrectContinueBtn(object sender, EventArgs e)
+    {
+		AnswerLabel.Text = "";
+		SubmitAnswer.IsVisible = true;
+		IncorrectAnswer.IsVisible = false;
+
+
+        AnswerEntry.Text = "";
+		AnswerEntry.TextColor = Colors.White;
+        if (GamesLeft > 0)
+            CreateNewQuestion();
+        else
+            GameOver();
+    }
+
+    private void IncorrectBtnClicked(object sender, EventArgs e)
+    {
+		AnswerEntry.TextColor = Colors.Green;
+		AnswerEntry.Text = correctAnswer.ToString();
+    }
 }
