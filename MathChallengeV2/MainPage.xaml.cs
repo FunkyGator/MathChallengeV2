@@ -11,7 +11,7 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-		Difficulty.Text = $"Difficulty : {Convert.ToString(difficulty)}";
+		Difficulty.Text = $"Difficulty : {difficulty}";
 		NumberOfQuestions.Text = $"Number Of Questions : {numberOfQuestions}";
 
 		BindingContext = this;
@@ -33,7 +33,7 @@ public partial class MainPage : ContentPage
 	{
 		difficulty = difficulty == GameDifficulty.Easy ? GameDifficulty.Challenging : difficulty == GameDifficulty.Challenging ? GameDifficulty.Hard : difficulty = GameDifficulty.Easy;
 
-        Difficulty.Text = $"Difficulty : {Convert.ToString(difficulty)}";
+        Difficulty.Text = $"Difficulty : {difficulty}";
     }
 
     private void ToggleNumberOfQuestions(object sender, EventArgs e)

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MathChallengeV2.MainPage"
-             BackgroundImageSource="bg.jpg">
+             BackgroundImageSource="black_bg0.jpg">
 
     <ContentView>
         
@@ -97,7 +97,7 @@
                     FontSize="28"
                     MaximumWidthRequest="400"
                     MaximumHeightRequest="70"/>
-            
+
             <Button BackgroundColor="Transparent"
                     TextColor="White"
                     BorderWidth="5"
@@ -107,7 +107,6 @@
                     FontSize="28"
                     MaximumWidthRequest="400"
                     MaximumHeightRequest="70"/>
-            
         </VerticalStackLayout>
         
     </ContentView>
