@@ -26,4 +26,9 @@ public partial class PreviousGames : ContentPage
     {
         Navigation.PushAsync(new MainPage());
     }
+
+    private void OnDetails(object sender, EventArgs e)
+    {
+
+    }
 }

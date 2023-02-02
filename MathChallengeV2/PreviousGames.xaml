@@ -22,7 +22,7 @@
                FontSize="50"
                HorizontalOptions="Center"/>
 
-        <Grid Grid.Row="1" ColumnDefinitions="*, *, *, *, *"
+        <Grid Grid.Row="1" ColumnDefinitions="*, *, *, *, *, *"
                   RowDefinitions="50">
             
             <Label Grid.Column="0" 
@@ -47,8 +47,14 @@
                    FontSize="32" 
                    FontAttributes="Bold" 
                    HorizontalOptions="Center"/>
-            
-            <Label Grid.Column="4" 
+
+            <Label Grid.Column="4"
+                   Text="Details"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Label Grid.Column="5" 
                    Text="Delete" 
                    FontSize="32" 
                    FontAttributes="Bold" 
@@ -67,7 +73,7 @@
                         
                         <DataTemplate>
                             
-                            <Grid ColumnDefinitions="*, *, *, *, *"
+                            <Grid ColumnDefinitions="*, *, *, *, *, *"
                                   RowDefinitions="50">
 
                                 <Label Grid.Column="0" 
@@ -100,16 +106,27 @@
                                            FontSize="32" />
                                     
                                 </StackLayout>
-                                
+
+                                <ImageButton 
+                                    Source="clipboard.png" 
+                                    BackgroundColor="Transparent"
+                                    Grid.Column="4"
+                                    Clicked="OnDetails"
+                                    BindingContext="{Binding Id}"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    MinimumHeightRequest="60"
+                                    MinimumWidthRequest="60"/>
+
                                 <ImageButton
                                     Source="trash.png"
                                     BackgroundColor="Transparent"
-                                    Grid.Column="4"
+                                    Grid.Column="5"
                                     Clicked="OnDelete"
                                     BindingContext="{Binding Id}"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center"
-                                    MinimumHeightRequest="70"
+                                    MinimumHeightRequest="60"
                                     MaximumWidthRequest="70" />
                                 
                             </Grid>
