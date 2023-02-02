@@ -56,7 +56,7 @@
                         BackgroundColor="Transparent"
                         FontSize="80"
                         TextColor="White"
-                        Completed="OnAnswerSubmitted"/>
+                        Completed="ValidateAnswer"/>
                     
                 </Border>
                 
@@ -76,7 +76,7 @@
                 BorderColor="White"
                 TextColor="White"
                 Text="Check Answer"
-                Clicked="OnAnswerSubmitted"
+                Clicked="ValidateAnswer"
                 HorizontalOptions="Center"
                 FontSize="32"/>
 
