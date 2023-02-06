@@ -11,9 +11,9 @@
             <RowDefinition Height="Auto" />
             
             <RowDefinition Height="Auto"/>
-            
+
             <RowDefinition Height="*"/>
-            
+
             <RowDefinition Height="Auto" />
             
         </Grid.RowDefinitions>
@@ -66,13 +66,13 @@
             
             <VerticalStackLayout
                 Padding="50, 100, 50, 50">
-                
+
                 <CollectionView x:Name="gamesList">
-                    
+
                     <CollectionView.ItemTemplate>
-                        
+
                         <DataTemplate>
-                            
+
                             <Grid ColumnDefinitions="*, *, *, *, *, *"
                                   RowDefinitions="50">
 
@@ -80,31 +80,31 @@
                                        Text="{Binding DatePlayed, StringFormat='{0:d}'}"
                                        FontSize="32"
                                        HorizontalOptions="Center"/>
-                                
+
                                 <Label Grid.Column="1" 
                                        Text="{Binding Type}"
                                        FontSize="32"
                                        HorizontalOptions="Center"/>
-                                
+
                                 <Label Grid.Column="2" 
                                        Text="{Binding Difficulty}"
                                        FontSize="32"
                                        HorizontalOptions="Center"/>
-                                
+
                                 <StackLayout Grid.Column="3" 
                                              Orientation="Horizontal" 
                                              Spacing="5" 
                                              HorizontalOptions="Center">
-                                    
+
                                     <Label Text="{Binding Score}"
                                            FontSize="32" />
-                                    
+
                                     <Label Text="out of"
                                            FontSize="32"/>
-                                    
+
                                     <Label Text="{Binding NumberOfQuestions}"
                                            FontSize="32" />
-                                    
+
                                 </StackLayout>
 
                                 <ImageButton 
@@ -128,17 +128,17 @@
                                     VerticalOptions="Center"
                                     MinimumHeightRequest="60"
                                     MaximumWidthRequest="70" />
-                                
+
                             </Grid>
-                            
+
                         </DataTemplate>
-                        
+
                     </CollectionView.ItemTemplate>
-                    
+
                 </CollectionView>
-                
+
             </VerticalStackLayout>
-            
+
         </ScrollView>
         
         <Button

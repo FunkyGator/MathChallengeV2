@@ -1,7 +1,4 @@
 using MathChallengeV2.Models;
-using Microsoft.Maui.Graphics.Text;
-using System.Runtime.CompilerServices;
-using Windows.UI.WebUI;
 
 namespace MathChallengeV2;
 
@@ -19,6 +16,7 @@ public partial class GamePage : ContentPage
 
 	public int Answer { get; set; }
 
+	List<GameDetails> GameDetailsList = new();
 	int currentQuestion = 1;
 	int firstNumber = 0;
 	int secondNumber = 0;
@@ -165,13 +163,13 @@ public partial class GamePage : ContentPage
         if (Int32.TryParse(AnswerEntry.Text, out int answer)) ValidAnswerSubmitted(answer);
         else
         {
+			AnswerLabel.TextColor = Colors.Red;
             AnswerLabel.Text = "Your answer needs to be an Number.";
         }
     }
 
     private void ValidAnswerSubmitted(int answer)
 	{
-		// If the answer is not an integer then the answer will be incorrect but the game will not hang.
 		Answer = answer;
 
 		var isCorrect = false;
@@ -237,6 +235,7 @@ public partial class GamePage : ContentPage
 
         if (isCorrect)
         {
+			AnswerLabel.TextColor = Colors.Green;
             AnswerLabel.Text = "Correct!";
             SubmitAnswer.IsVisible = false;
             Continue.IsVisible = true;
@@ -244,11 +243,14 @@ public partial class GamePage : ContentPage
 
         else
         {
+			AnswerLabel.TextColor = Colors.Red;
             AnswerLabel.Text = "Incorrect!";
             AnswerEntry.TextColor = Colors.Red;
             SubmitAnswer.IsVisible = false;
             IncorrectAnswer.IsVisible = true;
         }
+
+		GameDetailsList.Add(new GameDetails());
     }
 
     private void GameOver()
@@ -261,7 +263,8 @@ public partial class GamePage : ContentPage
             "-" => GameOperation.Subtraction,
             "×" => GameOperation.Multiplication,
             "÷" => GameOperation.Division,
-			"?" => GameOperation.Random,
+            "?" => GameOperation.Random,
+              _ => GameOperation.Random,
         };
 
 		QuestionArea.IsVisible = false;
@@ -275,6 +278,7 @@ public partial class GamePage : ContentPage
 			Score = score,
 			Difficulty = this.Difficulty,
 			NumberOfQuestions = this.NumberOfQuestions,
+			GameDetails = GameDetailsList,
 		}) ;
 	}
 

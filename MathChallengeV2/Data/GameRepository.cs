@@ -19,6 +19,7 @@ namespace MathChallengeV2.Data
             {
                 conn = new SQLiteConnection(_dbPath);
                 conn.CreateTable<Game>();
+                conn.CreateTable<GameDetails>();
             }
             catch (Exception e)
             {
@@ -50,7 +51,7 @@ namespace MathChallengeV2.Data
         internal void Delete(int id)
         {
             conn = new SQLiteConnection(_dbPath);
-            conn.Delete(new Game { Id = id });
+            conn.Delete(new Game { GameId = id });
         }
     }
 }

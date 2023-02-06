@@ -1,6 +1,3 @@
-using MathChallengeV2.Models;
-using System;
-
 namespace MathChallengeV2;
 
 public partial class PreviousGames : ContentPage
