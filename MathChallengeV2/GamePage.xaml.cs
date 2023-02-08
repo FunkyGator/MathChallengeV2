@@ -94,7 +94,7 @@ public partial class GamePage : ContentPage
             firstNumber = random.Next(lowNum, highNum);
             secondNumber = random.Next(lowNum, highNum);
 
-            while (firstNumber < secondNumber || firstNumber % secondNumber != 0)
+            while (firstNumber <= secondNumber || firstNumber % secondNumber != 0)
 			{
 				firstNumber = random.Next(lowNum, highNum);
 				secondNumber = random.Next(lowNum, highNum);
@@ -211,13 +211,13 @@ public partial class GamePage : ContentPage
 				break;
 			case "÷":
 				//isCorrect= answer == firstNumber / secondNumber;
-				if (Answer == secondNumber / secondNumber)
+				if (Answer == firstNumber / secondNumber)
 				{
 					isCorrect = true;
 				}
 				else
 				{
-					correctAnswer = secondNumber / secondNumber;
+					correctAnswer = firstNumber / secondNumber;
 				}
                 break;
 		}
