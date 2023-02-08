@@ -250,7 +250,14 @@ public partial class GamePage : ContentPage
             IncorrectAnswer.IsVisible = true;
         }
 
-		GameDetailsList.Add(new GameDetails());
+		GameDetailsList.Add(new GameDetails()
+		{
+			FirstNumber = firstNumber,
+			Operator = GameType,
+			SecondNumber= secondNumber,
+			Answer = this.Answer,
+			Result = AnswerLabel.Text,
+		});
     }
 
     private void GameOver()
@@ -278,8 +285,7 @@ public partial class GamePage : ContentPage
 			Score = score,
 			Difficulty = this.Difficulty,
 			NumberOfQuestions = this.NumberOfQuestions,
-			GameDetails = GameDetailsList,
-		}) ;
+		}, GameDetailsList) ;
 	}
 
 	private void OnBackToMenu(object sender, EventArgs e)

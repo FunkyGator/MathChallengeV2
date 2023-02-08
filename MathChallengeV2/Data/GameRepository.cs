@@ -1,5 +1,6 @@
 ﻿using MathChallengeV2.Models;
 using SQLite;
+using SQLiteNetExtensions.Extensions;
 
 namespace MathChallengeV2.Data
 {
@@ -27,10 +28,27 @@ namespace MathChallengeV2.Data
             }
         }
 
-        internal void Add(Game game)
+        internal void Add(Game game, List<GameDetails> GameDetailsList)
         {
-            conn = new SQLiteConnection(_dbPath);
-            conn.Insert(game);
+            try
+            {
+                conn = new SQLiteConnection(_dbPath);
+
+                conn.Insert(game);
+
+                foreach(GameDetails GameDetail in GameDetailsList)
+                {
+                    conn.Insert(GameDetail);
+                }
+
+                game.GameDetails = GameDetailsList;
+                conn.UpdateWithChildren(game);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public List<Game> GetAllGames()
@@ -38,7 +56,11 @@ namespace MathChallengeV2.Data
            try
             {
                 CreateTable();
-                return conn.Table<Game>().ToList();
+                // return conn.Table<Game>().ToList();
+
+                var gamesList = conn.GetAllWithChildren<Game>();
+
+                return gamesList;
             }
             catch (Exception ex)
             {
@@ -50,8 +72,17 @@ namespace MathChallengeV2.Data
 
         internal void Delete(int id)
         {
-            conn = new SQLiteConnection(_dbPath);
-            conn.Delete(new Game { GameId = id });
+            try
+            {
+                conn = new SQLiteConnection(_dbPath);
+                Game game = conn.GetWithChildren<Game>(id);
+                conn.Delete(game, true);
+                //conn.Delete(new GameDetails { GameDetailsId = id });
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
