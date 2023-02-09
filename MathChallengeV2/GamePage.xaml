@@ -4,36 +4,30 @@
              x:Class="MathChallengeV2.GamePage"
              BackgroundImageSource="black_bg.jpg">
     
-    <VerticalStackLayout
-        Padding="100"
-        Spacing="25">
+    <VerticalStackLayout Padding="100"
+                         Spacing="25">
 
-        <VerticalStackLayout
-            x:Name="QuestionArea"
-            Spacing="25">
+        <VerticalStackLayout x:Name="QuestionArea"
+                             Spacing="25">
             
-            <Label 
-                x:Name="QuestionType"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                FontSize="80"
-                FontAttributes="Bold"/>
+            <Label x:Name="QuestionType"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontSize="80"
+                   FontAttributes="Bold" />
             
-            <Label 
-                x:Name="NumberOfQuestionsLabel"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                FontSize="80"/>
+            <Label x:Name="NumberOfQuestionsLabel"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontSize="80" />
 
-            <HorizontalStackLayout
-                HorizontalOptions="Center"
-                Spacing="15">
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Spacing="15">
                 
-                <Label
-                    x:Name="QuestionLabel"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    FontSize="80"/>
+                <Label x:Name="QuestionLabel"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="80" />
 
                 <Border Stroke="White"
                         StrokeThickness="5"
@@ -50,39 +44,37 @@
                         
                     </Border.StrokeShape>
 
-                    <Entry
-                        x:Name="AnswerEntry"
-                        HorizontalOptions="Center"
-                        BackgroundColor="Transparent"
-                        FontSize="80"
-                        TextColor="White"
-                        Completed="ValidateAnswer"/>
+                    <Entry x:Name="AnswerEntry"
+                           HorizontalOptions="Center"
+                           BackgroundColor="Transparent"
+                           FontSize="80"
+                           TextColor="White"
+                           Completed="ValidateAnswer" />
                     
                 </Border>
                 
             </HorizontalStackLayout>
 
-            <Label 
-                x:Name="AnswerLabel"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                FontSize="50" />
+            <Label x:Name="AnswerLabel"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontSize="50" />
 
-            <Button
-                x:Name="SubmitAnswer"
-                IsVisible="True"
-                BackgroundColor="Transparent"
-                BorderWidth="5"
-                BorderColor="White"
-                TextColor="White"
-                Text="Check Answer"
-                Clicked="ValidateAnswer"
-                HorizontalOptions="Center"
-                FontSize="32"/>
+            <Button x:Name="SubmitAnswer"
+                    IsVisible="True"
+                    BackgroundColor="Transparent"
+                    BorderWidth="5"
+                    BorderColor="White"
+                    TextColor="White"
+                    Text="Check Answer"
+                    Clicked="ValidateAnswer"
+                    HorizontalOptions="Center"
+                    FontSize="32" />
 
             <VerticalStackLayout x:Name="IncorrectAnswer"
                                  IsVisible="False"
                                  Spacing="25">
+                
                 <Button Text="Show Answer"
                         x:Name="IncorrectBtn"
                         Clicked="IncorrectBtnClicked"
@@ -91,20 +83,22 @@
                         BorderColor="White"
                         TextColor="White"
                         HorizontalOptions="Center"
-                        FontSize="32"/>
+                        FontSize="32" />
+                
                 <Button x:Name="IncorrectContinue"
-                        Clicked="IncorrectContinueBtn"
+                        Clicked="IncorrectContinueBtnClicked"
                         Text="Continue"
                         BackgroundColor="Transparent"
                         BorderWidth="5"
                         BorderColor="White"
                         TextColor="White"
                         HorizontalOptions="Center"
-                        FontSize="32"/>
+                        FontSize="32" />
+                
             </VerticalStackLayout>
 
             <Button x:Name="Continue"
-                    Clicked="ContinueBtn"
+                    Clicked="ContinueBtnClicked"
                     IsVisible="False"
                     Text="Continue"
                     BackgroundColor="Transparent"
@@ -112,27 +106,25 @@
                     BorderColor="White"
                     TextColor="White"
                     HorizontalOptions="Center"
-                    FontSize="32"/>
+                    FontSize="32" />
 
         </VerticalStackLayout>
 
-        <Label 
-            x:Name="GameOverLabel"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" 
-            FontSize="50" />
+        <Label x:Name="GameOverLabel"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" 
+               FontSize="50" />
 
-        <Button
-            IsVisible="false"
-            x:Name="BackTOMenuBtn"
-            BackgroundColor="Transparent"
-            BorderWidth="5"
-            BorderColor="White"
-            TextColor="White"
-            Text="Back To Menu"
-            Clicked="OnBackToMenu"
-            HorizontalOptions="Center"
-            FontSize="32"/>
+        <Button IsVisible="false"
+                x:Name="BackTOMenuBtn"
+                BackgroundColor="Transparent"
+                BorderWidth="5"
+                BorderColor="White"
+                TextColor="White"
+                Text="Back To Menu"
+                Clicked="OnBackToMenuBtnClicked"
+                HorizontalOptions="Center"
+                FontSize="32" />
         
     </VerticalStackLayout>
     

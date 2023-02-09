@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using SQLiteNetExtensions.Attributes;
 
+// This class defines the data structure that is pulled from the "gameDetails" table of the database.
 namespace MathChallengeV2.Models
 {
     [Table("gameDetails")]
@@ -11,6 +12,7 @@ namespace MathChallengeV2.Models
 
         [ForeignKey(typeof(Game)), Column("GameId")]
         public int GameId { get; set; }
+
         public int FirstNumber { get; set; }
         public string Operator { get; set; }
         public int SecondNumber { get; set; }

@@ -44,7 +44,6 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\CaveatBrush-Regular.ttf" />
-	  <None Remove="Resources\Images\bg.jpg" />
 	  <None Remove="Resources\Images\trash.png" />
 	</ItemGroup>
 

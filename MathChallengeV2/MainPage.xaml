@@ -6,20 +6,17 @@
 
     <ContentView>
         
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="50">
+        <VerticalStackLayout Spacing="25"
+                             Padding="50">
             
-            <Label
-                Text="Math Challenge"
-                FontSize="80"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"/>
+            <Label Text="Math Challenge"
+                   FontSize="80"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
 
-            <Label
-                Text="What game would you like to play?"
-                FontSize="50"
-                HorizontalOptions="Center"/>
+            <Label Text="What game would you like to play?"
+                   FontSize="50"
+                   HorizontalOptions="Center" />
 
             <Grid RowDefinitions="*"
                   ColumnDefinitions="*, *, *, *, *">
@@ -32,7 +29,7 @@
                         BorderColor="White"
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
-                        FontSize="60"/>
+                        FontSize="60" />
                 
                 <Button Grid.Column="1"
                         Text="-" 
@@ -42,7 +39,7 @@
                         BorderColor="White"
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
-                        FontSize="60"/>
+                        FontSize="60" />
                 
                 <Button Grid.Column="2"
                         Text="×"
@@ -52,7 +49,7 @@
                         BackgroundColor="Transparent"
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
-                        FontSize="60"/>
+                        FontSize="60" />
                 
                 <Button Grid.Column="3"
                         Text="÷"
@@ -62,7 +59,7 @@
                         BackgroundColor="Transparent"
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
-                        FontSize="60"/>
+                        FontSize="60" />
                 
                 <Button Grid.Column="4"
                         Text="?"
@@ -72,7 +69,7 @@
                         BackgroundColor="Transparent"
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
-                        FontSize="60"/>
+                        FontSize="60" />
                 
             </Grid>
             
@@ -82,10 +79,10 @@
                     BorderColor="White"
                     x:Name="NumberOfQuestions"
                     Text="Number Of Questions:"
-                    Clicked="ToggleNumberOfQuestions"
+                    Clicked="ToggleNumberOfQuestionsBtnClicked"
                     FontSize="28"
                     MaximumWidthRequest="400"
-                    MaximumHeightRequest="70"/>
+                    MaximumHeightRequest="70" />
             
             <Button BackgroundColor="Transparent"
                     TextColor="White"
@@ -93,20 +90,21 @@
                     BorderColor="White"
                     x:Name="Difficulty"
                     Text="Difficulty:"
-                    Clicked="ToggleDifficulty"
+                    Clicked="ToggleDifficultyBtnClicked"
                     FontSize="28"
                     MaximumWidthRequest="400"
-                    MaximumHeightRequest="70"/>
+                    MaximumHeightRequest="70" />
 
             <Button BackgroundColor="Transparent"
                     TextColor="White"
                     BorderWidth="5"
                     BorderColor="White"
                     Text="View Previous Games" 
-                    Clicked="OnViewPreviousGamesChosen"
+                    Clicked="OnViewPreviousGamesBtnClicked"
                     FontSize="28"
                     MaximumWidthRequest="400"
-                    MaximumHeightRequest="70"/>
+                    MaximumHeightRequest="70" />
+            
         </VerticalStackLayout>
         
     </ContentView>
