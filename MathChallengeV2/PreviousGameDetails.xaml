@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MathChallengeV2.Models"
+             x:Class="MathChallengeV2.PreviousGameDetails"
+             BackgroundImageSource="emptyblackboard.jpg">
+
+    <StackLayout>
+       
+        <CollectionView x:Name="gameDetails">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding FirstNumber}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+</ContentPage>

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MathChallengeV2.GamePage"
-             BackgroundImageSource="black_bg.jpg">
+             BackgroundImageSource="emptyblackboard.jpg">
     
     <VerticalStackLayout Padding="100"
                          Spacing="25">
@@ -32,11 +32,11 @@
                 <Border Stroke="White"
                         StrokeThickness="5"
                         BackgroundColor="Transparent"
-                        HorizontalOptions="Center"
+                        HorizontalOptions="StartAndExpand"
                         VerticalOptions="Center"
-                        MinimumWidthRequest="120"
+                        MinimumWidthRequest="130"
                         MaximumHeightRequest="110"
-                        Margin="0,0,0,20">
+                        Margin="0,0,0,22">
                     
                     <Border.StrokeShape>
                         
@@ -45,7 +45,8 @@
                     </Border.StrokeShape>
 
                     <Entry x:Name="AnswerEntry"
-                           HorizontalOptions="Center"
+                           MinimumWidthRequest="85"
+                           HorizontalOptions="StartAndExpand"
                            BackgroundColor="Transparent"
                            FontSize="80"
                            TextColor="White"

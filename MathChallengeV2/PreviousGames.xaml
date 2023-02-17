@@ -3,202 +3,166 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:MathChallengeV2.Models"
              x:Class="MathChallengeV2.PreviousGames"
-             BackgroundImageSource="black_bg.jpg">
-    
+             BackgroundImageSource="emptyblackboard.jpg">
+
     <Grid>
         
         <Grid.RowDefinitions>
             
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="100" />
             
-            <RowDefinition Height="Auto"/>
-
-            <RowDefinition Height="*"/>
-
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50"/>
+            
+            <RowDefinition Height="*" />
+            
+            <RowDefinition Height="100" />
             
         </Grid.RowDefinitions>
-        
-        <Label Grid.Row="0" Text="Games History"
-               FontSize="50"
-               HorizontalOptions="Center"/>
 
-        <Grid Grid.Row="1" ColumnDefinitions="*, *, *, *, *, *"
+        <!-- Titile Row -->
+        <Label Grid.Row="0"
+               Grid.ColumnSpan="6"
+               FontSize="50"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               Text="Games History" 
+               Margin="0, 30, 0, 0" />
+        
+        <!-- Column Headings Row -->
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*, *, *, *, *, *"
               RowDefinitions="50">
             
-            <Label Grid.Column="0" 
-                   Text="Date" FontSize="28" 
-                   FontAttributes="Bold" 
-                   HorizontalOptions="Center" />
-            
+            <Label Grid.Column="0"
+                   Text="Date"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start" 
+                   Margin="50,0,0,0" />
+
             <Label Grid.Column="1"
-                   Text="Type" 
-                   FontSize="28" 
-                   FontAttributes="Bold" 
-                   HorizontalOptions="Center" />
-            
+                   Text="Type"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start" />
+
             <Label Grid.Column="2"
-                   Text="Difficulty" 
-                   FontSize="28" 
-                   FontAttributes="Bold" 
-                   HorizontalOptions="Center" />
-            
-            <Label Grid.Column="3" 
-                   Text="Score" 
-                   FontSize="28" 
-                   FontAttributes="Bold" 
-                   HorizontalOptions="Center" />
+                   Text="Difficulty"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start" />
+
+            <Label Grid.Column="3"
+                   Text="Score"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start" />
 
             <Label Grid.Column="4"
                    Text="Details"
                    FontSize="28"
                    FontAttributes="Bold"
-                   HorizontalOptions="Center" />
+                   HorizontalOptions="Start" />
 
-            <Label Grid.Column="5" 
-                   Text="Delete" 
-                   FontSize="28" 
-                   FontAttributes="Bold" 
-                   HorizontalOptions="Center" />
-            
+            <Label Grid.Column="5"
+                   Text="Delete"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start" />
+
         </Grid>
 
+        <!-- Columns for Game Data and GameDetails Data-->
         <ScrollView Grid.Row="2">
+            
+            <CollectionView x:Name="gamesList">
+                
+                <CollectionView.EmptyView>
+                    
+                    <Label Text="There are no games in the history..."
+                           HorizontalTextAlignment="Center"
+                           FontSize="32" />
+                    
+                </CollectionView.EmptyView>
 
-            <VerticalStackLayout Padding="50, 10, 50, 50">
-
-                <CollectionView x:Name="gamesList">
-
-                    <CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    
+                    <DataTemplate x:DataType="models:Game">
                         
-                        <Label Text="There are no games in the history..."
-                               HorizontalTextAlignment="Center"
-                               FontSize="32" />
+                        <Grid ColumnDefinitions="*, *, *, *, *, *">
+                            
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="50" />
+
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="{Binding DatePlayed, StringFormat='{0:d}'}"
+                                   FontSize="28"
+                                   Margin="50,0,0,0" />
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="{Binding Type}"
+                                   FontSize="28" />
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="2"
+                                   Text="{Binding Difficulty}"
+                                   FontSize="28" />
+
+                            <HorizontalStackLayout Grid.Row="0"
+                                                   Grid.Column="3"
+                                                   Spacing="5"
+                                                   HorizontalOptions="Start">
+
+                                <Label Text="{Binding Score}"
+                                       FontSize="28" />
+
+                                <Label Text="out of"
+                                       FontSize="28" />
+
+                                <Label Text="{Binding NumberOfQuestions}"
+                                       FontSize="28" />
+
+                            </HorizontalStackLayout>
+
+                            <ImageButton Grid.Row="0"
+                                         Grid.Column="4"
+                                         Source="clipboard.png"
+                                         BackgroundColor="Transparent"
+                                         Clicked="OnDetailsBtnClicked"
+                                         BindingContext="{Binding GameId}"
+                                         HorizontalOptions="Start"
+                                         HeightRequest="60"
+                                         WidthRequest="70" />
+
+                            <ImageButton Grid.Row="0"
+                                         Grid.Column="5"
+                                         Source="trash.png"
+                                         BackgroundColor="Transparent"
+                                         Clicked="OnDeleteBtnClicked"
+                                         BindingContext="{Binding GameId}"
+                                         HorizontalOptions="Start"
+                                         HeightRequest="60"
+                                         WidthRequest="70" />
+
+                            
+
+                        </Grid>
                         
-                    </CollectionView.EmptyView>
-
-                    <CollectionView.ItemTemplate>
-
-                        <DataTemplate x:DataType="models:Game">
-
-                            <Grid ColumnDefinitions="*, *, *, *, *, *">
-                                
-                                <Grid.RowDefinitions>
-                                    
-                                    <RowDefinition Height="50" />
-                                    
-                                    <RowDefinition />
-                                    
-                                </Grid.RowDefinitions>
-
-                                <Label Grid.Column="0" 
-                                       Text="{Binding DatePlayed, StringFormat='{0:d}'}"
-                                       FontSize="28"
-                                       HorizontalOptions="Center" />
-
-                                <Label Grid.Column="1" 
-                                       Text="{Binding Type}"
-                                       FontSize="26"
-                                       HorizontalOptions="Center" />
-
-                                <Label Grid.Column="2" 
-                                       Text="{Binding Difficulty}"
-                                       FontSize="28"
-                                       HorizontalOptions="Center" />
-
-                                <StackLayout Grid.Column="3" 
-                                             Orientation="Horizontal" 
-                                             Spacing="5" 
-                                             HorizontalOptions="Center">
-
-                                    <Label Text="{Binding Score}"
-                                           FontSize="28" />
-
-                                    <Label Text="out of"
-                                           FontSize="28"/>
-
-                                    <Label Text="{Binding NumberOfQuestions}"
-                                           FontSize="28" />
-
-                                </StackLayout>
-
-                                <ImageButton Source="clipboard.png" 
-                                             BackgroundColor="Transparent"
-                                             Grid.Column="4"
-                                             Clicked="OnDetailsBtnClicked"
-                                             BindingContext="{Binding GameId}"
-                                             HorizontalOptions="Center"
-                                             VerticalOptions="Center"
-                                             MinimumHeightRequest="60"
-                                             MinimumWidthRequest="60" />
-
-                                <ImageButton Source="trash.png"
-                                             BackgroundColor="Transparent"
-                                             Grid.Column="5"
-                                             Clicked="OnDeleteBtnClicked"
-                                             BindingContext="{Binding GameId}"
-                                             HorizontalOptions="Center"
-                                             VerticalOptions="Center"
-                                             MinimumHeightRequest="60"
-                                             MaximumWidthRequest="70" />
-
-                                <CollectionView ItemsSource="{Binding GameDetails}"
-                                                IsVisible="{Binding ViewDetails}"
-                                                Grid.Row="1"
-                                                Grid.ColumnSpan="6">
-
-                                    <CollectionView.ItemTemplate>
-
-                                        <DataTemplate x:DataType="models:GameDetails">
-
-                                            <StackLayout Orientation="Horizontal">
-
-                                                <Label Text="{Binding FirstNumber}"
-                                                       FontSize="28"
-                                                       Margin="80, 0, 0, 0" />
-                                                
-                                                <Label Text="{Binding Operator}"
-                                                       FontSize="28"
-                                                       Margin="20, 0, 0, 0" />
-                                                
-                                                <Label Text="{Binding SecondNumber}" 
-                                                       FontSize="28"
-                                                       Margin="20, 0, 0, 0" />
-                                                
-                                                <Label Text="="
-                                                       FontSize="28"
-                                                       Margin="20, 0, 0, 0" />
-                                                
-                                                <Label Text="{Binding Answer}"
-                                                       FontSize="28"
-                                                       Margin="20, 0, 0, 0" />
-                                                
-                                                <Label Text="{Binding Result}" 
-                                                       FontSize="28"
-                                                       Margin="20, 0, 0, 0" />
-                                                
-                                            </StackLayout>
-
-                                        </DataTemplate>
-                                        
-                                    </CollectionView.ItemTemplate>
-                                    
-                                </CollectionView>
-
-                            </Grid>
-
-                        </DataTemplate>
-
-                    </CollectionView.ItemTemplate>
-
-                </CollectionView>
-
-            </VerticalStackLayout>
-
+                    </DataTemplate>
+                    
+                </CollectionView.ItemTemplate>
+                
+            </CollectionView>
+            
         </ScrollView>
 
-        <Button Margin="0, 15, 0, 10"
-                Grid.Row="3"
+        <Button Grid.Row="3"
+                Grid.ColumnSpan="6"
                 BackgroundColor="Transparent"
                 BorderWidth="5"
                 BorderColor="White"
@@ -207,8 +171,8 @@
                 Clicked="OnBackToMenuBtnClicked"
                 HorizontalOptions="Center"
                 MaximumHeightRequest="55"
-                FontSize="32" />
-        
+                FontSize="32"
+                Margin="0,0,0,35" />
     </Grid>
     
 </ContentPage>

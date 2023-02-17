@@ -1,6 +1,4 @@
 using MathChallengeV2.Models;
-using Microsoft.Maui.Controls;
-using Windows.Gaming.Preview.GamesEnumeration;
 
 namespace MathChallengeV2;
 
@@ -24,6 +22,8 @@ public partial class PreviousGames : ContentPage
 		App.GameRepository.Delete((int)button.BindingContext);
 
 		gamesList.ItemsSource = App.GameRepository.GetAllGames();
+
+		
 	}
 
 	// Toggles whether the player can see the GameDetails under the game or not.
@@ -33,16 +33,13 @@ public partial class PreviousGames : ContentPage
 
 		for (int i = 0; i < games.Count; i++)
 		{ 
-			if (games[i].GameId == (int)button.BindingContext) games[i].ToggleViewDetails();
-
-			gamesList.ItemsSource = App.GameRepository.Update(games[i], games[i].GameDetails);
+			if (games[i].GameId == (int)button.BindingContext) Navigation.PushAsync(new PreviousGameDetails(games[i]));
 		}
-	}
+    }
 
 	// Returns the player to the MainPage.
     private void OnBackToMenuBtnClicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MainPage());
+		Navigation.PopAsync();
     }
-
 }

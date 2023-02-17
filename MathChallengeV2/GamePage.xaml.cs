@@ -275,7 +275,7 @@ public partial class GamePage : ContentPage
 		score = 0;
 		GamesLeft = NumberOfQuestions;
 
-		Navigation.PushAsync(new MainPage());
+		Navigation.PopAsync();
 	}
 
 	// Displays the next question when the Continue button is pressed after a correnct answer.
