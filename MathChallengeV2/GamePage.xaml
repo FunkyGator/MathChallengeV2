@@ -51,7 +51,7 @@
                            FontSize="80"
                            TextColor="White"
                            Completed="ValidateAnswer" />
-                    
+
                 </Border>
                 
             </HorizontalStackLayout>

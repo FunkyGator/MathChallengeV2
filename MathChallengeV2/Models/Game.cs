@@ -7,8 +7,6 @@ namespace MathChallengeV2.Models
     [Table("game")]
     public class Game
     {
-        public bool ViewDetails { get; set; }
-
         [PrimaryKey, AutoIncrement, Column("GameId")]
         public int GameId { get; set; }
 
@@ -21,11 +19,6 @@ namespace MathChallengeV2.Models
         [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<GameDetails> GameDetails { get; set; }
 
-        // Method for changing the status of the ViewDetails Property
-        public void ToggleViewDetails()
-        {
-            ViewDetails = !ViewDetails;
-        }
     }
 
     public enum GameOperation

@@ -50,13 +50,15 @@
                    Text="Difficulty"
                    FontSize="28"
                    FontAttributes="Bold"
-                   HorizontalOptions="Start" />
+                   HorizontalOptions="Start"
+                   Margin="15, 0, 0, 0"/>
 
             <Label Grid.Column="3"
                    Text="Score"
                    FontSize="28"
                    FontAttributes="Bold"
-                   HorizontalOptions="Start" />
+                   HorizontalOptions="Start"
+                   Margin="5, 0, 0, 0"/>
 
             <Label Grid.Column="4"
                    Text="Details"
@@ -111,12 +113,14 @@
                             <Label Grid.Row="0"
                                    Grid.Column="2"
                                    Text="{Binding Difficulty}"
-                                   FontSize="28" />
+                                   FontSize="28"
+                                   Margin="15, 0, 0, 0"/>
 
                             <HorizontalStackLayout Grid.Row="0"
                                                    Grid.Column="3"
                                                    Spacing="5"
-                                                   HorizontalOptions="Start">
+                                                   HorizontalOptions="Start"
+                                                   Margin="5, 0, 0, 0">
 
                                 <Label Text="{Binding Score}"
                                        FontSize="28" />
@@ -148,8 +152,6 @@
                                          HorizontalOptions="Start"
                                          HeightRequest="60"
                                          WidthRequest="70" />
-
-                            
 
                         </Grid>
                         
