@@ -11,8 +11,6 @@ public static class MauiProgram
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{
-				fonts.AddFont("CaveatBrush-Regular.ttf", "CaveatBrushRegular");
-				fonts.AddFont("EraserDust-p70d.ttf", "EraserDust");
 				fonts.AddFont("KGChasingPavements.ttf", "ChasingPavements");
 			});
 
