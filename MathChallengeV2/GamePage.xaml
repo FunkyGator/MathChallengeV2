@@ -4,7 +4,7 @@
              x:Class="MathChallengeV2.GamePage"
              BackgroundImageSource="emptyblackboard.jpg">
     
-    <VerticalStackLayout Padding="100"
+    <VerticalStackLayout Padding="50"
                          Spacing="25">
 
         <VerticalStackLayout x:Name="QuestionArea"
