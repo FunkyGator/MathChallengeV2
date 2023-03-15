@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage x:Class="MathChallengeV2.PreviousGameDetails"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:MathChallengeV2.Models"
-             x:Class="MathChallengeV2.PreviousGameDetails"
              BackgroundImageSource="emptyblackboard.jpg">
 
     <Grid>
@@ -20,85 +20,84 @@
 
         </Grid.RowDefinitions>
 
-        <Label Text="Game Details"
+        <Label Grid.Row="0"
+               Margin="0,30,0,20"
                FontSize="50"
-               TextColor="White"
                HorizontalOptions="Center"
-               Margin = "0, 30, 0, 20"
-               Grid.Row="0"/>
+               Text="Game Details"
+               TextColor="White" />
 
-        <VerticalStackLayout Spacing="15" 
+        <VerticalStackLayout Grid.Row="1"
+                             Margin="0,0,0,30"
                              HorizontalOptions="Center"
-                             Margin = "0,0,0,30"
-                             Grid.Row="1">
+                             Spacing="15">
 
             <HorizontalStackLayout HorizontalOptions="Center">
 
-                <Label Text="Date Game Played :"
-                       FontSize="28"
+                <Label Margin="0,0,5,0"
                        FontAttributes="Bold"
-                       TextColor="White"
-                       Margin="0, 0, 5, 0"/>
+                       FontSize="28"
+                       Text="Date Game Played :"
+                       TextColor="White" />
 
-                <Label x:Name="datePlayed" 
-                       FontSize="28"
+                <Label x:Name="datePlayed"
                        FontAttributes="Bold"
+                       FontSize="28"
                        TextColor="White" />
 
             </HorizontalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="Center">
 
-                <Label Text="Game Type :"
-                       FontSize="28"
+                <Label Margin="0,0,5,0"
                        FontAttributes="Bold"
-                       TextColor="White"
-                       Margin="0, 0, 5, 0"/>
+                       FontSize="28"
+                       Text="Game Type :"
+                       TextColor="White" />
 
                 <Label x:Name="type"
-                       FontSize="28"
                        FontAttributes="Bold"
+                       FontSize="28"
                        TextColor="White" />
 
             </HorizontalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="Center">
 
-                <Label Text="Game Difficulty :"
-                       FontSize="28"
+                <Label Margin="0,0,5,0"
                        FontAttributes="Bold"
-                       TextColor="White"
-                       Margin="0, 0, 5, 0" />
+                       FontSize="28"
+                       Text="Game Difficulty :"
+                       TextColor="White" />
 
-                <Label x:Name="difficulty" 
-                       FontSize="28"
+                <Label x:Name="difficulty"
                        FontAttributes="Bold"
+                       FontSize="28"
                        TextColor="White" />
 
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout HorizontalOptions="Center"
-                                   Spacing="10">
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
 
-                <Label Text="Score :"
-                       FontSize="28"
+                <Label Margin="0,0,5,0"
                        FontAttributes="Bold"
-                       TextColor="White" 
-                       Margin="0, 0, 5, 0" />
-
-                <Label x:Name="score" 
                        FontSize="28"
-                       FontAttributes="Bold"
+                       Text="Score :"
                        TextColor="White" />
 
-                <Label Text="of"
-                       FontSize="28"
+                <Label x:Name="score"
                        FontAttributes="Bold"
+                       FontSize="28"
+                       TextColor="White" />
+
+                <Label FontAttributes="Bold"
+                       FontSize="28"
+                       Text="of"
                        TextColor="White" />
 
                 <Label x:Name="numberOfQuestions"
-                       FontSize="28"
                        FontAttributes="Bold"
+                       FontSize="28"
                        TextColor="White" />
 
             </HorizontalStackLayout>
@@ -106,82 +105,87 @@
         </VerticalStackLayout>
 
         <CollectionView x:Name="gameDetails"
-                        Margin="30, 200, 0, 30"
-                        HorizontalOptions="Center"
-                        Grid.Row="2">
+                        Grid.Row="2"
+                        Margin="30,200,0,30"
+                        HorizontalOptions="Center">
 
-                <CollectionView.ItemTemplate>
+            <CollectionView.ItemTemplate>
 
-                    <DataTemplate>
+                <DataTemplate>
 
-                        <Grid ColumnDefinitions="100, 20, 100, 20, 150, 200"
-                              RowDefinitions="*">
+                    <Grid ColumnDefinitions="100, 20, 100, 20, 150, 200" RowDefinitions="*">
 
-                            <Label Grid.Row="0" Grid.Column="0"
-                                   Text="{Binding FirstNumber}"
-                                   FontSize="28" 
-                                   TextColor="White"
-                                   HorizontalOptions="Center"/>
+                        <Label Grid.Row="0"
+                               Grid.Column="0"
+                               FontSize="28"
+                               HorizontalOptions="Center"
+                               Text="{Binding FirstNumber}"
+                               TextColor="White" />
 
-                            <Label Grid.Row="0" Grid.Column="1"
-                                   Text="{Binding Operator}"
-                                   FontSize="28" 
-                                   TextColor="White" />
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               FontSize="28"
+                               Text="{Binding Operator}"
+                               TextColor="White" />
 
-                            <Label Grid.Row="0" Grid.Column="2"
-                                   Text="{Binding SecondNumber}"
-                                   FontSize="28" 
-                                   TextColor="White"
-                                   HorizontalOptions="Center"/>
+                        <Label Grid.Row="0"
+                               Grid.Column="2"
+                               FontSize="28"
+                               HorizontalOptions="Center"
+                               Text="{Binding SecondNumber}"
+                               TextColor="White" />
 
-                            <Label Grid.Row="0" Grid.Column="3"
-                                   Text="=" 
-                                   FontSize="28" 
-                                   TextColor="White" />
+                        <Label Grid.Row="0"
+                               Grid.Column="3"
+                               FontSize="28"
+                               Text="="
+                               TextColor="White" />
 
-                            <Label Grid.Row="0" Grid.Column="4"
-                                   Text="{Binding Answer, StringFormat='{0:N0}'}" 
-                                   FontSize="28" 
-                                   TextColor="White" 
-                                   HorizontalOptions="Center" />
+                        <Label Grid.Row="0"
+                               Grid.Column="4"
+                               FontSize="28"
+                               HorizontalOptions="Center"
+                               Text="{Binding Answer, StringFormat='{0:N0}'}"
+                               TextColor="White" />
 
-                            <Label Grid.Row="0" Grid.Column="5"
-                                   Text="{Binding Result}" 
-                                   FontSize="28" 
-                                   TextColor="White"
-                                   HorizontalOptions="Center"/>
+                        <Label Grid.Row="0"
+                               Grid.Column="5"
+                               FontSize="28"
+                               HorizontalOptions="Center"
+                               Text="{Binding Result}"
+                               TextColor="White" />
 
-                        </Grid>
+                    </Grid>
 
-                    </DataTemplate>
+                </DataTemplate>
 
-                </CollectionView.ItemTemplate>
+            </CollectionView.ItemTemplate>
 
-            </CollectionView>
+        </CollectionView>
 
-            <Button BackgroundColor="Transparent"
-                BorderWidth="5"
-                BorderColor="White"
-                TextColor="White"
-                Text="Back To Games History"
-                Clicked="OnBackToGamesHistoryBtnClicked"
-                HorizontalOptions="Center"
-                MaximumHeightRequest="90"
-                FontSize="32"
-                Margin="0,0,0,25" 
-                Grid.Row="3"/>
-
-        <Button BackgroundColor="Transparent"
-                BorderWidth="5"
-                BorderColor="White"
-                TextColor="White"
-                Text="Back To Menu"
-                Clicked="OnBackToMenuBtnClicked"
-                HorizontalOptions="Center"
-                MaximumHeightRequest="90"
-                FontSize="32"
+        <Button Grid.Row="3"
                 Margin="0,0,0,25"
-                Grid.Row="4"/>
+                BackgroundColor="Transparent"
+                BorderColor="White"
+                BorderWidth="5"
+                Clicked="OnBackToGamesHistoryBtnClicked"
+                FontSize="32"
+                HorizontalOptions="Center"
+                MaximumHeightRequest="90"
+                Text="Back To Games History"
+                TextColor="White" />
+
+        <Button Grid.Row="4"
+                Margin="0,0,0,25"
+                BackgroundColor="Transparent"
+                BorderColor="White"
+                BorderWidth="5"
+                Clicked="OnBackToMenuBtnClicked"
+                FontSize="32"
+                HorizontalOptions="Center"
+                MaximumHeightRequest="90"
+                Text="Back To Menu"
+                TextColor="White" />
 
     </Grid>
 
