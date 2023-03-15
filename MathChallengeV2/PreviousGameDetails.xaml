@@ -5,17 +5,29 @@
              x:Class="MathChallengeV2.PreviousGameDetails"
              BackgroundImageSource="emptyblackboard.jpg">
 
-    <VerticalStackLayout>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+
+            <RowDefinition Height="50" />
+
+            <RowDefinition Height="*" />
+            
+            
+        </Grid.RowDefinitions>
 
         <Label Text="Game Details"
                FontSize="50"
                TextColor="White"
                HorizontalOptions="Center"
-               Margin = "0, 30, 0, 20"/>
+               Margin = "0, 30, 0, 20"
+               Grid.Row="0"/>
 
         <VerticalStackLayout Spacing="15" 
                              HorizontalOptions="Center"
-                             Margin = "0,0,0,30">
+                             Margin = "0,0,0,30"
+                             Grid.Row="1">
 
             <HorizontalStackLayout HorizontalOptions="Center">
 
@@ -92,7 +104,8 @@
 
         <CollectionView x:Name="gameDetails"
                         Margin="30, 0, 0, 0"
-                        HorizontalOptions="Center">
+                        HorizontalOptions="Center"
+                        Grid.Row="2">
 
                 <CollectionView.ItemTemplate>
 
@@ -165,6 +178,6 @@
                 FontSize="32"
                 Margin="0,0,0,35" />
 
-    </VerticalStackLayout>
+    </Grid>
 
 </ContentPage>
