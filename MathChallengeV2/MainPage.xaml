@@ -1,112 +1,110 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage x:Class="MathChallengeV2.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MathChallengeV2.MainPage"
              BackgroundImageSource="emptyblackboard.jpg">
 
     <ContentView>
-        
-        <VerticalStackLayout Spacing="25"
-                             Padding="50">
-            
-            <Label Text="Math Challenge"
+
+        <VerticalStackLayout Padding="50" Spacing="25">
+
+            <Label FontAttributes="Bold"
                    FontSize="80"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center" />
+                   HorizontalOptions="Center"
+                   Text="Math Challenge" />
 
-            <Label Text="What game would you like to play?"
-                   FontSize="50"
-                   HorizontalOptions="Center" />
+            <Label FontSize="50"
+                   HorizontalOptions="Center"
+                   Text="What game would you like to play?" />
 
-            <Grid RowDefinitions="*"
-                  ColumnDefinitions="*, *, *, *, *">
+            <Grid ColumnDefinitions="*, *, *, *, *" RowDefinitions="*">
 
                 <Button Grid.Column="0"
+                        BackgroundColor="Transparent"
+                        BorderColor="White"
+                        BorderWidth="5"
+                        Clicked="OnGameChosen"
+                        FontSize="60"
+                        MaximumWidthRequest="100"
                         Text="+"
-                        TextColor="White"
-                        BorderWidth="5"
-                        BackgroundColor="Transparent"
-                        BorderColor="White"
-                        Clicked="OnGameChosen"
-                        MaximumWidthRequest="100"
-                        FontSize="60" />
-                
+                        TextColor="White" />
+
                 <Button Grid.Column="1"
-                        Text="-" 
-                        TextColor="White"
-                        BorderWidth="5"
                         BackgroundColor="Transparent"
                         BorderColor="White"
+                        BorderWidth="5"
                         Clicked="OnGameChosen"
+                        FontSize="60"
                         MaximumWidthRequest="100"
-                        FontSize="60" />
-                
+                        Text="-"
+                        TextColor="White" />
+
                 <Button Grid.Column="2"
+                        BackgroundColor="Transparent"
+                        BorderColor="White"
+                        BorderWidth="5"
+                        Clicked="OnGameChosen"
+                        FontSize="60"
+                        MaximumWidthRequest="100"
                         Text="×"
-                        TextColor="White"
-                        BorderWidth="5"
-                        BorderColor="White"
-                        BackgroundColor="Transparent"
-                        Clicked="OnGameChosen"
-                        MaximumWidthRequest="100"
-                        FontSize="60" />
-                
+                        TextColor="White" />
+
                 <Button Grid.Column="3"
+                        BackgroundColor="Transparent"
+                        BorderColor="White"
+                        BorderWidth="5"
+                        Clicked="OnGameChosen"
+                        FontSize="60"
+                        MaximumWidthRequest="100"
                         Text="÷"
-                        TextColor="White"
-                        BorderWidth="5"
-                        BorderColor="White"
-                        BackgroundColor="Transparent"
-                        Clicked="OnGameChosen"
-                        MaximumWidthRequest="100"
-                        FontSize="60" />
-                
+                        TextColor="White" />
+
                 <Button Grid.Column="4"
-                        Text="?"
-                        TextColor="White"
-                        BorderWidth="5"
-                        BorderColor="White"
                         BackgroundColor="Transparent"
+                        BorderColor="White"
+                        BorderWidth="5"
                         Clicked="OnGameChosen"
+                        FontSize="60"
                         MaximumWidthRequest="100"
-                        FontSize="60" />
-                
+                        Text="?"
+                        TextColor="White" />
+
             </Grid>
-            
-            <Button BackgroundColor="Transparent"
-                    TextColor="White"
-                    BorderWidth="5"
+
+            <Button x:Name="NumberOfQuestions"
+                    BackgroundColor="Transparent"
                     BorderColor="White"
-                    x:Name="NumberOfQuestions"
-                    Text="Number Of Questions:"
+                    BorderWidth="5"
                     Clicked="ToggleNumberOfQuestionsBtnClicked"
                     FontSize="28"
+                    MaximumHeightRequest="70"
                     MaximumWidthRequest="400"
-                    MaximumHeightRequest="70" />
-            
-            <Button BackgroundColor="Transparent"
-                    TextColor="White"
-                    BorderWidth="5"
+                    Text="Number Of Questions:"
+                    TextColor="White" />
+
+            <Button x:Name="Difficulty"
+                    BackgroundColor="Transparent"
                     BorderColor="White"
-                    x:Name="Difficulty"
-                    Text="Difficulty:"
+                    BorderWidth="5"
                     Clicked="ToggleDifficultyBtnClicked"
                     FontSize="28"
+                    MaximumHeightRequest="70"
                     MaximumWidthRequest="400"
-                    MaximumHeightRequest="70" />
+                    Text="Difficulty:"
+                    TextColor="White" />
 
             <Button BackgroundColor="Transparent"
-                    TextColor="White"
-                    BorderWidth="5"
                     BorderColor="White"
-                    Text="View Previous Games" 
+                    BorderWidth="5"
                     Clicked="OnViewPreviousGamesBtnClicked"
                     FontSize="28"
+                    MaximumHeightRequest="70"
                     MaximumWidthRequest="400"
-                    MaximumHeightRequest="70" />
-            
+                    Text="View Previous Games"
+                    TextColor="White" />
+
         </VerticalStackLayout>
-        
+
     </ContentView>
-    
+
 </ContentPage>

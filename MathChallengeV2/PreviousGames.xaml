@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage x:Class="MathChallengeV2.PreviousGames"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:MathChallengeV2.Models"
-             x:Class="MathChallengeV2.PreviousGames"
              BackgroundImageSource="emptyblackboard.jpg">
 
     <Grid>
-        
+
         <Grid.RowDefinitions>
-            
+
             <RowDefinition Height="100" />
-            
-            <RowDefinition Height="50"/>
-            
+
+            <RowDefinition Height="50" />
+
             <RowDefinition Height="*" />
-            
+
             <RowDefinition Height="100" />
-            
+
         </Grid.RowDefinitions>
 
-        <!-- Titile Row -->
+        <!--  Titile Row  -->
         <Label Grid.Row="0"
                Grid.ColumnSpan="6"
-               FontSize="50"
+               Margin="0,30,0,0"
                FontAttributes="Bold"
+               FontSize="50"
                HorizontalTextAlignment="Center"
-               Text="Games History" 
-               Margin="0, 30, 0, 0" />
-        
-        <!-- Column Headings Row -->
+               Text="Games History" />
+
+        <!--  Column Headings Row  -->
         <Grid Grid.Row="1"
               ColumnDefinitions="*, *, *, *, *, *"
               RowDefinitions="50">
-            
+
             <Label Grid.Column="0"
-                   Text="Date"
-                   FontSize="28"
+                   Margin="50,0,0,0"
                    FontAttributes="Bold"
-                   HorizontalOptions="Start" 
-                   Margin="50,0,0,0" />
+                   FontSize="28"
+                   HorizontalOptions="Start"
+                   Text="Date" />
 
             <Label Grid.Column="1"
-                   Text="Type"
-                   FontSize="28"
                    FontAttributes="Bold"
-                   HorizontalOptions="Start" />
+                   FontSize="28"
+                   HorizontalOptions="Start"
+                   Text="Type" />
 
             <Label Grid.Column="2"
-                   Text="Difficulty"
-                   FontSize="28"
+                   Margin="15,0,0,0"
                    FontAttributes="Bold"
+                   FontSize="28"
                    HorizontalOptions="Start"
-                   Margin="15, 0, 0, 0"/>
+                   Text="Difficulty" />
 
             <Label Grid.Column="3"
-                   Text="Score"
-                   FontSize="28"
+                   Margin="5,0,0,0"
                    FontAttributes="Bold"
+                   FontSize="28"
                    HorizontalOptions="Start"
-                   Margin="5, 0, 0, 0"/>
+                   Text="Score" />
 
             <Label Grid.Column="4"
-                   Text="Details"
-                   FontSize="28"
                    FontAttributes="Bold"
-                   HorizontalOptions="Start" />
+                   FontSize="28"
+                   HorizontalOptions="Start"
+                   Text="Details" />
 
             <Label Grid.Column="5"
-                   Text="Delete"
-                   FontSize="28"
                    FontAttributes="Bold"
-                   HorizontalOptions="Start" />
+                   FontSize="28"
+                   HorizontalOptions="Start"
+                   Text="Delete" />
 
         </Grid>
 
-        <!-- Columns for Game Data and GameDetails Data-->
+        <!--  Columns for Game Data and GameDetails Data  -->
         <ScrollView Grid.Row="2">
-            
+
             <CollectionView x:Name="gamesList">
-                
+
                 <CollectionView.EmptyView>
-                    
-                    <Label Text="There are no games in the history..."
+
+                    <Label FontSize="32"
                            HorizontalTextAlignment="Center"
-                           FontSize="32" />
-                    
+                           Text="There are no games in the history..." />
+
                 </CollectionView.EmptyView>
 
                 <CollectionView.ItemTemplate>
-                    
+
                     <DataTemplate x:DataType="models:Game">
-                        
+
                         <Grid ColumnDefinitions="*, *, *, *, *, *">
-                            
+
                             <Grid.RowDefinitions>
 
                                 <RowDefinition Height="50" />
@@ -101,80 +101,77 @@
 
                             <Label Grid.Row="0"
                                    Grid.Column="0"
-                                   Text="{Binding DatePlayed, StringFormat='{0:d}'}"
+                                   Margin="50,0,0,0"
                                    FontSize="28"
-                                   Margin="50,0,0,0" />
+                                   Text="{Binding DatePlayed, StringFormat='{0:d}'}" />
 
                             <Label Grid.Row="0"
                                    Grid.Column="1"
-                                   Text="{Binding Type}"
-                                   FontSize="28" />
+                                   FontSize="28"
+                                   Text="{Binding Type}" />
 
                             <Label Grid.Row="0"
                                    Grid.Column="2"
-                                   Text="{Binding Difficulty}"
+                                   Margin="15,0,0,0"
                                    FontSize="28"
-                                   Margin="15, 0, 0, 0"/>
+                                   Text="{Binding Difficulty}" />
 
                             <HorizontalStackLayout Grid.Row="0"
                                                    Grid.Column="3"
-                                                   Spacing="5"
+                                                   Margin="5,0,0,0"
                                                    HorizontalOptions="Start"
-                                                   Margin="5, 0, 0, 0">
+                                                   Spacing="5">
 
-                                <Label Text="{Binding Score}"
-                                       FontSize="28" />
+                                <Label FontSize="28" Text="{Binding Score}" />
 
-                                <Label Text="out of"
-                                       FontSize="28" />
+                                <Label FontSize="28" Text="out of" />
 
-                                <Label Text="{Binding NumberOfQuestions}"
-                                       FontSize="28" />
+                                <Label FontSize="28" Text="{Binding NumberOfQuestions}" />
 
                             </HorizontalStackLayout>
 
                             <ImageButton Grid.Row="0"
                                          Grid.Column="4"
-                                         Source="clipboard.png"
                                          BackgroundColor="Transparent"
-                                         Clicked="OnDetailsBtnClicked"
                                          BindingContext="{Binding GameId}"
-                                         HorizontalOptions="Start"
+                                         Clicked="OnDetailsBtnClicked"
                                          HeightRequest="60"
+                                         HorizontalOptions="Start"
+                                         Source="clipboard.png"
                                          WidthRequest="70" />
 
                             <ImageButton Grid.Row="0"
                                          Grid.Column="5"
-                                         Source="trash.png"
                                          BackgroundColor="Transparent"
-                                         Clicked="OnDeleteBtnClicked"
                                          BindingContext="{Binding GameId}"
-                                         HorizontalOptions="Start"
+                                         Clicked="OnDeleteBtnClicked"
                                          HeightRequest="60"
+                                         HorizontalOptions="Start"
+                                         Source="trash.png"
                                          WidthRequest="70" />
 
                         </Grid>
-                        
+
                     </DataTemplate>
-                    
+
                 </CollectionView.ItemTemplate>
-                
+
             </CollectionView>
-            
+
         </ScrollView>
 
         <Button Grid.Row="3"
                 Grid.ColumnSpan="6"
+                Margin="0,0,0,35"
                 BackgroundColor="Transparent"
-                BorderWidth="5"
                 BorderColor="White"
-                TextColor="White"
-                Text="Back To Menu"
+                BorderWidth="5"
                 Clicked="OnBackToMenuBtnClicked"
+                FontSize="32"
                 HorizontalOptions="Center"
                 MaximumHeightRequest="55"
-                FontSize="32"
-                Margin="0,0,0,35" />
+                Text="Back To Menu"
+                TextColor="White" />
     </Grid>
-    
+
 </ContentPage>

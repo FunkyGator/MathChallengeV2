@@ -257,7 +257,7 @@ public partial class GamePage : ContentPage
 
 		QuestionArea.IsVisible = false;
 		BackTOMenuBtn.IsVisible = true;
-		GameOverLabel.Text = $"Game over! You got {score} out of {NumberOfQuestions} right";
+		GameOverLabel.Text = $"Game over! You got {score} out of {NumberOfQuestions} correct!";
 
 		App.GameRepository.Add(new Game
 		{

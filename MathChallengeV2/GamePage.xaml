@@ -1,132 +1,129 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage x:Class="MathChallengeV2.GamePage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MathChallengeV2.GamePage"
              BackgroundImageSource="emptyblackboard.jpg">
-    
-    <VerticalStackLayout Padding="50"
-                         Spacing="25">
 
-        <VerticalStackLayout x:Name="QuestionArea"
-                             Spacing="25">
-            
+    <VerticalStackLayout Padding="50" Spacing="25">
+
+        <VerticalStackLayout x:Name="QuestionArea" Spacing="25">
+
             <Label x:Name="QuestionType"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
                    FontSize="80"
-                   FontAttributes="Bold" />
-            
-            <Label x:Name="NumberOfQuestionsLabel"
-                   VerticalOptions="Center"
                    HorizontalOptions="Center"
-                   FontSize="80" />
+                   VerticalOptions="Center" />
 
-            <HorizontalStackLayout HorizontalOptions="Center"
-                                   Spacing="15">
-                
+            <Label x:Name="NumberOfQuestionsLabel"
+                   FontSize="80"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+
                 <Label x:Name="QuestionLabel"
-                       VerticalOptions="Center"
+                       FontSize="80"
                        HorizontalOptions="Center"
-                       FontSize="80" />
+                       VerticalOptions="Center" />
 
-                <Border Stroke="White"
-                        StrokeThickness="5"
+                <Border Margin="0,0,0,22"
                         BackgroundColor="Transparent"
                         HorizontalOptions="StartAndExpand"
-                        VerticalOptions="Center"
-                        MinimumWidthRequest="130"
                         MaximumHeightRequest="110"
-                        Margin="0,0,0,22">
-                    
+                        MinimumWidthRequest="130"
+                        Stroke="White"
+                        StrokeThickness="5"
+                        VerticalOptions="Center">
+
                     <Border.StrokeShape>
-                        
+
                         <RoundRectangle CornerRadius="10,10,10,10" />
-                        
+
                     </Border.StrokeShape>
 
                     <Entry x:Name="AnswerEntry"
-                           MinimumWidthRequest="85"
-                           HorizontalOptions="StartAndExpand"
                            BackgroundColor="Transparent"
+                           Completed="ValidateAnswer"
                            FontSize="80"
-                           TextColor="White"
-                           Completed="ValidateAnswer" />
+                           HorizontalOptions="StartAndExpand"
+                           MinimumWidthRequest="85"
+                           TextColor="White" />
 
                 </Border>
-                
+
             </HorizontalStackLayout>
 
             <Label x:Name="AnswerLabel"
-                   VerticalOptions="Center"
+                   FontSize="50"
                    HorizontalOptions="Center"
-                   FontSize="50" />
+                   VerticalOptions="Center" />
 
             <Button x:Name="SubmitAnswer"
-                    IsVisible="True"
                     BackgroundColor="Transparent"
-                    BorderWidth="5"
                     BorderColor="White"
-                    TextColor="White"
-                    Text="Check Answer"
+                    BorderWidth="5"
                     Clicked="ValidateAnswer"
+                    FontSize="32"
                     HorizontalOptions="Center"
-                    FontSize="32" />
+                    IsVisible="True"
+                    Text="Check Answer"
+                    TextColor="White" />
 
             <VerticalStackLayout x:Name="IncorrectAnswer"
                                  IsVisible="False"
                                  Spacing="25">
-                
-                <Button Text="Show Answer"
-                        x:Name="IncorrectBtn"
+
+                <Button x:Name="IncorrectBtn"
+                        BackgroundColor="Transparent"
+                        BorderColor="White"
+                        BorderWidth="5"
                         Clicked="IncorrectBtnClicked"
-                        BackgroundColor="Transparent"
-                        BorderWidth="5"
-                        BorderColor="White"
-                        TextColor="White"
+                        FontSize="32"
                         HorizontalOptions="Center"
-                        FontSize="32" />
-                
+                        Text="Show Answer"
+                        TextColor="White" />
+
                 <Button x:Name="IncorrectContinue"
-                        Clicked="IncorrectContinueBtnClicked"
-                        Text="Continue"
                         BackgroundColor="Transparent"
-                        BorderWidth="5"
                         BorderColor="White"
-                        TextColor="White"
+                        BorderWidth="5"
+                        Clicked="IncorrectContinueBtnClicked"
+                        FontSize="32"
                         HorizontalOptions="Center"
-                        FontSize="32" />
-                
+                        Text="Continue"
+                        TextColor="White" />
+
             </VerticalStackLayout>
 
             <Button x:Name="Continue"
+                    BackgroundColor="Transparent"
+                    BorderColor="White"
+                    BorderWidth="5"
                     Clicked="ContinueBtnClicked"
+                    FontSize="32"
+                    HorizontalOptions="Center"
                     IsVisible="False"
                     Text="Continue"
-                    BackgroundColor="Transparent"
-                    BorderWidth="5"
-                    BorderColor="White"
-                    TextColor="White"
-                    HorizontalOptions="Center"
-                    FontSize="32" />
+                    TextColor="White" />
 
         </VerticalStackLayout>
 
         <Label x:Name="GameOverLabel"
-               VerticalOptions="Center"
-               HorizontalOptions="Center" 
-               FontSize="50" />
+               FontSize="50"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
 
-        <Button IsVisible="false"
-                x:Name="BackTOMenuBtn"
+        <Button x:Name="BackTOMenuBtn"
                 BackgroundColor="Transparent"
-                BorderWidth="5"
                 BorderColor="White"
-                TextColor="White"
-                Text="Back To Menu"
+                BorderWidth="5"
                 Clicked="OnBackToMenuBtnClicked"
+                FontSize="32"
                 HorizontalOptions="Center"
-                FontSize="32" />
-        
+                IsVisible="false"
+                Text="Back To Menu"
+                TextColor="White" />
+
     </VerticalStackLayout>
-    
+
 </ContentPage>

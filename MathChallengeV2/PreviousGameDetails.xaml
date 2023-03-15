@@ -8,13 +8,16 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="120" />
 
             <RowDefinition Height="50" />
 
             <RowDefinition Height="*" />
-            
-            
+
+            <RowDefinition Height="100" />
+
+            <RowDefinition Height="100" />
+
         </Grid.RowDefinitions>
 
         <Label Text="Game Details"
@@ -103,7 +106,7 @@
         </VerticalStackLayout>
 
         <CollectionView x:Name="gameDetails"
-                        Margin="30, 0, 0, 0"
+                        Margin="30, 200, 0, 30"
                         HorizontalOptions="Center"
                         Grid.Row="2">
 
@@ -163,9 +166,10 @@
                 Text="Back To Games History"
                 Clicked="OnBackToGamesHistoryBtnClicked"
                 HorizontalOptions="Center"
-                MaximumHeightRequest="55"
+                MaximumHeightRequest="90"
                 FontSize="32"
-                Margin="0,35,0,35" />
+                Margin="0,0,0,25" 
+                Grid.Row="3"/>
 
         <Button BackgroundColor="Transparent"
                 BorderWidth="5"
@@ -174,9 +178,10 @@
                 Text="Back To Menu"
                 Clicked="OnBackToMenuBtnClicked"
                 HorizontalOptions="Center"
-                MaximumHeightRequest="55"
+                MaximumHeightRequest="90"
                 FontSize="32"
-                Margin="0,0,0,35" />
+                Margin="0,0,0,25"
+                Grid.Row="4"/>
 
     </Grid>
 
